@@ -12,7 +12,7 @@
     </div>
     <div class="container">
         <div class="progress">
-            <div class="progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+            <div class="progress-bar bg-success" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
         </div>
     </div>
     <div class="container" style="padding: 12px;">
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="col"><button class="btn btn-primary" type="button">이전 문제</button><button class="btn btn-primary" type="button">다음 문제</button></div>
+        <div class="col"><button class="btn btn-custom" type="button">이전 문제</button><button class="btn btn-custom" type="button">다음 문제</button></div>
     </div>
 
 <%@ include file="../common/foot.jspf"%>

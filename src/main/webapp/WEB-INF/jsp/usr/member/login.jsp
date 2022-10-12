@@ -29,7 +29,7 @@
 					<tr>
 						<th>로그인</th>
 						<td>
-							<button type="submit" class="btn btn-primary">로그인</button>
+							<button type="submit" class="btn btn-custom">로그인</button>
 							<button type="button" class="btn btn-outline btn-success"
 								onclick="history.back();">뒤로가기</button>
 						</td>

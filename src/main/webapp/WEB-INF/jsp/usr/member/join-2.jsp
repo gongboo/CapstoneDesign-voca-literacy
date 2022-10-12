@@ -24,7 +24,7 @@
                                     <div class="mb-3"><input class="form-control" name="nickname" placeholder="닉네임" type="text"></div>
                                     <div class="mb-3"><input class="form-control" name="email" placeholder="이메일" type="text" ></div>
                                     <div class="mb-3"><input class="form-control" name="cellphoneNo" placeholder="휴대전화번호" type="text"></div>
-                                    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">sign up</button></div>
+                                    <div class="mb-3"><button class="btn btn-custom d-block w-100" type="submit">sign up</button></div>
 									<div class="mb-3"><button type="button" class="btn btn-custom" onclick="history.back();">뒤로가기</button></div>
                                 </form>
                             </div>

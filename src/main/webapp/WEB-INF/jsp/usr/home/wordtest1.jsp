@@ -22,6 +22,6 @@
             </div>
         </div>
     </div>
-    <div class="container"><button class="btn btn-primary" type="button">시작하기</button></div>
+    <div class="container"><button class="btn btn-custom" type="button">시작하기</button></div>
 
 <%@ include file="../common/foot.jspf"%>
