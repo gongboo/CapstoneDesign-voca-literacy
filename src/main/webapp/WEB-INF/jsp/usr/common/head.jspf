@@ -37,7 +37,7 @@
               <a class="nav-link active" href="#">어휘테스트</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">사전검색</a>
+              <a class="nav-link active" href="/usr/dictionary/list">사전검색</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="#">마이페이지</a>
