@@ -165,7 +165,7 @@
 						<tr>
 							<th>회원가입</th>
 							<td>
-								<button type="submit" class="btn btn-primary">회원가입</button>
+								<button type="submit" class="btn btn-custom">회원가입</button>
 								<button type="button" class="btn btn-outline btn-success"
 									onclick="history.back();">뒤로가기</button>
 							</td>

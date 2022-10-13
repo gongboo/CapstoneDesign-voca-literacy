@@ -1,0 +1,60 @@
+.btn-custom{
+    background-color:green;
+    border-radius: 2px;
+    border: 1px solid green;
+    color: white;
+    /* padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; */
+}
+.btn-custom:hover{
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+}
+
+.btn-custom-login {
+    background-color: whitesmoke;
+    border-radius: 2px;
+    border: 1px solid whitesmoke;
+    color: black;
+    /* padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; */
+}
+
+.btn-custom-login:hover {
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid whitesmoke;
+}
+
+.bs-icon-custom{
+    background-color: grey;
+    color:white;
+}
+
+.a-custom{
+    color:green;
+    text-decoration: none;
+}
+
+.a-custom:hover {
+    color: green;
+    /* text-decoration: underline; */
+    /* text-decoration: none; */
+}
+
+.card{
+    background-color: white;
+    transition: background-color .5s;
+    height: 100%;
+}
+
+.card:hover{
+    background-color:   #F5F5F5;
+}
