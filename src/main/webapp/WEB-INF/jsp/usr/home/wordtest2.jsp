@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="col"><button class="btn btn-custom" type="button">이전 문제</button><button class="btn btn-custom" type="button">다음 문제</button></div>
+        <div class="col"><a class="btn btn-custom" type="button">이전 문제</a><a class="btn btn-custom" href="/usr/learn/wordtest3" type="button">다음 문제</a></div>
     </div>
 
 <%@ include file="../common/foot.jspf"%>

@@ -12,7 +12,7 @@
     </div>
     <div class="container">
         <div class="progress">
-            <div class="progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+            <div class="progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color:green;">50%</div>
         </div>
     </div>
     <div class="container" style="padding: 12px;">
@@ -22,6 +22,6 @@
             </div>
         </div>
     </div>
-    <div class="container"><button class="btn btn-custom" type="button">시작하기</button></div>
+    <div class="container"><a class="btn btn-custom" href="/usr/learn/wordtest2" type="button">시작하기</a></div>
 
 <%@ include file="../common/foot.jspf"%>
