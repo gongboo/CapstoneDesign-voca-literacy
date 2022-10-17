@@ -10,10 +10,10 @@
     <div class="navbar-collapse navbar-expand" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/usr/dictionary/list">사전검색</a>
+          <a class="nav-link" aria-current="page" href="/usr/dictionary/list">사전검색</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="usr/dictionary/pic">사진 검색</a>
+          <a class="nav-link active" href="usr/dictionary/pic">사진 검색</a>
         </li>
       </ul>
     </div>
@@ -23,7 +23,7 @@
 
 <div class="container">
   
-	<form class="flex">
+	<!-- <form class="flex">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<select
@@ -40,7 +40,11 @@
 							maxlength="20" value="${param.searchKeyword}"/>
 			<button class="btn btn-custom" type="submit">검색</button>
 		</div>
-	</form>
+	</form> -->
+    <form>
+        <input type="file" accept="image/*">
+        <button class="btn btn-custom" type="submit">검색</button>
+    </form> 
 
   <div>
 	<p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>
@@ -62,43 +66,6 @@
 		</div>
   	</c:forEach>
 </div>
-<div class="container">
-	<div class="page-menu mt-4">
-		<div class="btn-group justify-center">
-			<c:set var="pageMenuArmLen" value="9" />
-			<c:set var="startPage"
-				value="${page - pageMenuArmLen >= 1 ? page - pageMenuArmLen : 1}" />
-			<c:set var="endPage"
-				value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
-
-			<c:set var="pageBaseUri"
-				value="${pageBaseUri}&searchKeyword=${param.searchKeyword}" />
-			<c:set var="pageBaseUri"
-				value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
-
-			<c:if test="${startPage > 1}">
-				<a class="btn btn-sm " href="${pageBaseUri}&page=1">1</a>
-				<c:if test="${startPage > 2}">
-					<a class="btn btn-sm btn-disabled">...</a>
-				</c:if>
-			</c:if>
-
-			<c:forEach begin="${startPage}" end="${endPage}" var="i">
-				<a class="btn btn-sm ${page == i ? 'btn-active' : '' }"
-					href="${pageBaseUri}&page=${i}">${i}</a>
-			</c:forEach>
-
-			<c:if test="${endPage < pagesCount}">
-				<c:if test="${endPage < pagesCount - 1}">
-					<a class="btn btn-sm btn-disabled">...</a>
-				</c:if>
-				<a class="btn btn-sm" href="${pageBaseUri}&page=${pagesCount}">${pagesCount}</a>
-			</c:if>
-		</div>
-	</div>
-</div>
-
-
 
 
 <%@ include file="../common/foot.jspf"%>
