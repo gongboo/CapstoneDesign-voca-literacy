@@ -3,9 +3,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="Dictionary" />
 <%@ include file="../common/head.jspf"%>
-<div class="container">
-  <h1>사전검색</h1>
-</div>
+<nav class="navbar navbar-expand-md">
+  <div class="container">
+    <a class="navbar-brand" href="/usr/dictionary/list">단어검색</a>
+
+    <div class="navbar-collapse navbar-expand" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/usr/dictionary/list">사전검색</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">사진 검색</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container">
   
 	<form class="flex">

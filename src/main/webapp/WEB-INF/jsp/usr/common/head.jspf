@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <nav class="navbar sticky-top navbar-expand-md py-3" style="background-color: #ffffff;">
+    <nav class="navbar sticky-top navbar-expand-md" style="background-color: #ffffff;">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
           <span>어휘력 늘리기</span>
