@@ -20,4 +20,19 @@ public class SampleController {
     public String showLearn3() {
         return "usr/home/wordtest3";
     }
+    
+    @RequestMapping("/usr/learnControl/mypage1")
+    public String showLearnControl() {
+        return "usr/home/mypage1";
+    }
+
+    @RequestMapping("/usr/learnControl/mypage2")
+    public String showLearnControl2() {
+        return "usr/home/mypage2";
+    }
+
+    @RequestMapping("/usr/learnControl/mypage3")
+    public String showLearnControl3() {
+        return "usr/home/mypage3";
+    }
 }

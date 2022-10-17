@@ -5,7 +5,7 @@
 <%@ include file="../common/head.jspf"%>
 
     <div class="container">
-        <h1>마이페이지<span style="font-size: 20.52px;"><a class="a-custom" href="#">마이리포트</a>&nbsp;<a class="a-custom" href="#">오답노트</a>&nbsp;<a class="a-custom" href="#">내 단어장</a></span></h1>
+        <h1>마이페이지<span style="font-size: 20.52px;"><a class="a-custom" href="/usr/learnControl/mypage1">마이리포트</a>&nbsp;<a class="a-custom" href="/usr/learnControl/mypage2">오답노트</a>&nbsp;<a class="a-custom" href="/usr/learnControl/mypage3">내 단어장</a></span></h1>
     </div>
     <div class="col">
         <div class="container">
