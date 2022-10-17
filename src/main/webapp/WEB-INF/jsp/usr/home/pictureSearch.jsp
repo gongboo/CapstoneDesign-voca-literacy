@@ -13,7 +13,7 @@
           <a class="nav-link active" aria-current="page" href="/usr/dictionary/list">사전검색</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/usr/dictionary/pic">사진 검색</a>
+          <a class="nav-link" href="usr/dictionary/pic">사진 검색</a>
         </li>
       </ul>
     </div>

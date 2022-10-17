@@ -14,7 +14,7 @@
           <a class="nav-link active" aria-current="page" href="#">어휘테스트</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">짧은 글읽기</a>
+          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>
         </li>
       </ul>
     </div>

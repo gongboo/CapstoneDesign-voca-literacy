@@ -20,6 +20,11 @@ public class SampleController {
     public String showLearn3() {
         return "usr/home/wordtest3";
     }
+
+    @RequestMapping("/usr/learn/shortTextRead")
+    public String showLearnTextRead() {
+        return "usr/home/shortTextRead";
+    }
     
     @RequestMapping("/usr/learnControl/mypage1")
     public String showLearnControl() {
@@ -34,5 +39,10 @@ public class SampleController {
     @RequestMapping("/usr/learnControl/mypage3")
     public String showLearnControl3() {
         return "usr/home/mypage3";
+    }
+    
+    @RequestMapping("usr/dictionary/pic")
+    public String showPicSearch() {
+        return "usr/home/pictureSearch";
     }
 }
