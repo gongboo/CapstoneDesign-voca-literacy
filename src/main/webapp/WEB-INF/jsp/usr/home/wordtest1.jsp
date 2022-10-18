@@ -4,15 +4,28 @@
 <c:set var="pageTitle" value="어휘 테스트" />
 <%@ include file="../common/head.jspf"%>
     
-    <div class="container">
-        <h1>어휘 테스트</h1>
+<nav class="navbar navbar-expand-md">
+  <div class="container">
+    <a class="navbar-brand" href="/usr/learn/wordtest1">학습하기</a>
+
+    <div class="navbar-collapse navbar-expand" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/usr/learn/wordtest1">어휘테스트</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
     <div class="container">
         <h5 style="text-align: left;">남은 시간: 10:00</h5>
     </div>
     <div class="container">
         <div class="progress">
-            <div class="progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+            <div class="progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color:green;">50%</div>
         </div>
     </div>
     <div class="container" style="padding: 12px;">
@@ -22,6 +35,6 @@
             </div>
         </div>
     </div>
-    <div class="container"><button class="btn btn-custom" type="button">시작하기</button></div>
+    <div class="container"><a class="btn btn-custom" href="/usr/learn/wordtest2" type="button">시작하기</a></div>
 
 <%@ include file="../common/foot.jspf"%>

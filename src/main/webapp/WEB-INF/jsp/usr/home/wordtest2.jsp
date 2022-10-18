@@ -4,9 +4,22 @@
 <c:set var="pageTitle" value="어휘 테스트" />
 <%@ include file="../common/head.jspf"%>
     
-    <div class="container">
-        <h1>어휘 테스트</h1>
+<nav class="navbar navbar-expand-md">
+  <div class="container">
+    <a class="navbar-brand" href="#">학습하기</a>
+
+    <div class="navbar-collapse navbar-expand" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">어휘테스트</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
     <div class="container">
         <h5 style="text-align: left;">남은 시간: 10:00</h5>
     </div>
@@ -28,7 +41,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="col"><button class="btn btn-custom" type="button">이전 문제</button><button class="btn btn-custom" type="button">다음 문제</button></div>
+        <div class="col"><a class="btn btn-custom" type="button">이전 문제</a><a class="btn btn-custom" href="/usr/learn/wordtest3" type="button">다음 문제</a></div>
     </div>
 
 <%@ include file="../common/foot.jspf"%>

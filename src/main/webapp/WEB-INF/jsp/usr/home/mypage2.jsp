@@ -5,9 +5,25 @@
 <%@ include file="../common/head.jspf"%>
     
 
-    <div class="container">
-        <h1>마이페이지<span style="font-size: 20.52px;"><a class="a-custom" href="#">마이리포트</a>&nbsp;<a class="a-custom" href="#">오답노트</a>&nbsp;<a class="a-custom" href="#">내 단어장</a></span></h1>
+<nav class="navbar navbar-expand-md">
+  <div class="container">
+    <a class="navbar-brand" href="/usr/learnControl/mypage1">학습관리</a>
+
+    <div class="navbar-collapse navbar-expand" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/usr/learnControl/mypage1">마이리포트</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/usr/learnControl/mypage2">나의 단어장</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/usr/learnControl/mypage3">오답 노트</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
     <div class="col">
         <div class="container">
             <h4>내 단어장</h4>

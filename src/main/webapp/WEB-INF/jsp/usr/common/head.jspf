@@ -14,11 +14,10 @@
     <link rel="stylesheet" href="/resource/bootstrap.min.css" />
     <link rel="stylesheet" href="/resource/Navbar-Centered-Brand-icons.css" />
     <link rel="stylesheet" href="/resource/style.css" />
-	<script src="/resource/bootstrap.min.js" defer="defer"></script>
   </head>
 
   <body>
-    <nav class="navbar navbar-light navbar-expand-md py-3">
+    <nav class="navbar sticky-top navbar-expand-md" style="background-color: #ffffff;">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
           <span>어휘력 늘리기</span>
@@ -31,35 +30,27 @@
           <span class="visually-hidden">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navcol-3">
+        <div class="collapse navbar-collapse" id="navcol-3" data-toggle="collapse" data-target=".navbar-collapse">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">어휘테스트</a>
+              <a class="nav-link active" href="/usr/learn/wordtest1">학습하기</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/usr/dictionary/list">사전검색</a>
+              <a class="nav-link active" href="/usr/learnControl/mypage1">학습관리</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">마이페이지</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">임시기능</a>
+              <a class="nav-link active" href="/usr/dictionary/list">단어검색</a>
             </li>
           </ul>
-			<div class="d-none d-md-block">
-				
-				
-
-				<c:if test="${!rq.logined}">
-					<a href="/usr/member/login" class="btn btn-custom-login me-2" type="button">로그인</a>
-				</c:if>
-
-				<a href="${rq.joinUri}" class="btn btn-custom" role="button" href="#">회원가입</a>
-
-				<c:if test="${rq.logined}">
-					<a href="${rq.logoutUri}" class="btn btn-custom" role="button" href="#">(${rq.loginedMember.nickname})로그아웃</a>
-				</c:if>
-			</div>
+          <div class="d-block d-md-block">
+            <c:if test="${!rq.logined}">
+            <a href="/usr/member/login" class="btn btn-custom-login me-2" type="button">로그인</a>
+            </c:if>
+            <a href="${rq.joinUri}" class="btn btn-custom" role="button" href="#">회원가입</a>
+            <c:if test="${rq.logined}">
+            <a href="${rq.logoutUri}" class="btn btn-custom" role="button" href="#">(${rq.loginedMember.nickname})로그아웃</a>
+            </c:if>
+          </div>
         </div>
       </div>
     </nav>
