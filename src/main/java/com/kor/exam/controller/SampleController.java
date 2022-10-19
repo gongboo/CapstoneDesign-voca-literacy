@@ -45,4 +45,6 @@ public class SampleController {
     public String showPicSearch() {
         return "usr/home/pictureSearch";
     }
+
 }
+
