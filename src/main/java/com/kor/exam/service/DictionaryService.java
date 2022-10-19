@@ -30,7 +30,7 @@ public class DictionaryService {
 	}
 
 	public Word getForPrintWord(int id) {
-		Word word = dictionaryRepository.getForPrintWord(id);
+		Word word = dictionaryRepository.getWordbyId(id);
 
 		return word;
 	}
@@ -39,8 +39,8 @@ public class DictionaryService {
 		return dictionaryRepository.getWordsCount(searchKeywordTypeCode, searchKeyword);
 	}
 
-	public Word getWord(int id) {
-		return dictionaryRepository.getWord(id);
+	public Word getWordbyId(int id) {
+		return dictionaryRepository.getWordbyId(id);
 	}
 
 

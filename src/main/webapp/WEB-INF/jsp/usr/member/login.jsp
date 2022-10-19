@@ -16,10 +16,10 @@
                                     <h4>로그인</h4>
                                     <p class="w-lg-50">로그인하세요</p>
                                 </div>
-                                <form class="text-center" method="post">
+                                <form class="text-center" method="post" action="../member/doLogin">
                                     <div class="mb-3"><input class="form-control" name="loginId" type="text" placeholder="아이디"></div>
                                     <div class="mb-3"><input class="form-control" name="loginPw" type="password" placeholder="비밀번호"></div>
-                                    <div class="mb-3"><a class="btn btn-custom d-block w-100" href="${rq.loginUri}" type="submit">로그인</a></div>
+                                    <div class="mb-3"><button class="btn btn-custom d-block w-100" href="${rq.loginUri}" type="submit">로그인</button></div>
                                     <a class="text-muted" href="${rq.findLoginPwUri}" type="submit" >Forgot your password?</a>
                                 </form>
                             </div>

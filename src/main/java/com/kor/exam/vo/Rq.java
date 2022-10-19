@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.kor.exam.service.MemberService;
 import com.kor.exam.utill.Ut;
+import com.kor.exam.vo.Word;
 
 import lombok.Getter;
 
@@ -183,7 +184,14 @@ public class Rq {
 		return getEncodedCurrentUri();
 	}
 
-
+	public String getWordDetailUriFromWordList(Word word) {
+		return "../dictionary/detail?id=" + word.getId()  + "&listUri=" + getEncodedCurrentUri() ;
+	}
+	
+	public String addWordtoMyDictionary(Word word) {
+		return "../dictionary/addWord?id=" + word.getId()  + "&listUri=" + getEncodedCurrentUri() ;
+	}
 	
 
+	
 }

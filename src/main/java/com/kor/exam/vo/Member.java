@@ -1,5 +1,8 @@
 package com.kor.exam.vo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +21,5 @@ public class Member {
 	private String nickname;
 	private String cellphoneNo;
 	private String email;
+	
 }

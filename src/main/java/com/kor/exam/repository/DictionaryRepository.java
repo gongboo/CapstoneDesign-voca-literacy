@@ -17,8 +17,7 @@ public interface DictionaryRepository {
 			<script>
 			SELECT W.*,
 			FROM word AS W
-			WHERE 1
-			AND W.id = #{id}
+			WHERE W.id = #{id}
 			</script>
 			""")
 	public Word getForPrintWord(@Param("id") int id);
@@ -80,7 +79,7 @@ public interface DictionaryRepository {
 			</if>
 			</script>
 			""")
-	public int getWordsCount( String searchKeywordTypeCode, String searchKeyword);
+	public int getWordsCount(String searchKeywordTypeCode, String searchKeyword);
 
 	@Select("""
 			<script>
@@ -89,5 +88,5 @@ public interface DictionaryRepository {
 			WHERE id = #{id}
 			</script>
 			""")
-	public Word getWord(int id);
+	public Word getWordbyId(int id);
 }

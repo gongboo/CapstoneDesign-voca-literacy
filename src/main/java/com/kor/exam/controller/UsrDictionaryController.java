@@ -47,4 +47,13 @@ public class UsrDictionaryController {
 
 		return "usr/dictionary/list";
 	}
+	
+	@RequestMapping("/usr/dictionary/detail")
+	public String showDetail(Model model, int id) {
+		Word word = dictionaryService.getForPrintWord(id);
+
+		model.addAttribute("word", word);
+		
+		return "usr/dictionary/detail";
+	}
 }

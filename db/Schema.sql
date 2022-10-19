@@ -87,3 +87,13 @@ mean = "생긴 모양이 아름다워 눈으로 보기에 좋다.",
 `type` = "형용사";
 
 SELECT * FROM word;
+
+CREATE TABLE MyVoca(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME NOT NULL,
+    updateDate DATETIME NOT NULL,
+    memberId INT(10) NOT NULL,
+    wordId INT(10) NOT NULL
+);
+
+SELECT * FROM MyVoca;

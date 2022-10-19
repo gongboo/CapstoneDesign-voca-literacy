@@ -41,13 +41,15 @@
 						<th>단어</th>
 						<th>품사</th>
 						<th>뜻</th>
+						
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="word" items="${words}">
 						<tr class="hover">
-							<th>${word.id}</th>
-							<td>${word.name}</td>
+							<td>${word.id}</td>
+							<td><a class="btn-text-link block w-full truncate"
+								href="${rq.getWordDetailUriFromWordList(word)}">${word.name}</a></td>
 							<td>${word.type}</td>
 							<td>${word.mean}</td>
 						</tr>
@@ -64,8 +66,9 @@
 				<c:set var="endPage"
 					value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
 
+
 				<c:set var="pageBaseUri"
-					value="${pageBaseUri}&searchKeyword=${param.searchKeyword}" />
+					value="?searchKeyword=${param.searchKeyword}" />
 				<c:set var="pageBaseUri"
 					value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
 

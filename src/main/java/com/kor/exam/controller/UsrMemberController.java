@@ -1,16 +1,16 @@
 package com.kor.exam.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.stereotype.Controller;
 
-
-import com.kor.exam.utill.Ut;
-import com.kor.exam.vo.ResultData;
 import com.kor.exam.service.MemberService;
-import com.kor.exam.vo.Rq;
+import com.kor.exam.utill.Ut;
 import com.kor.exam.vo.Member;
+import com.kor.exam.vo.ResultData;
+import com.kor.exam.vo.Rq;
+import com.kor.exam.vo.Word;
 
 @Controller
 public class UsrMemberController {
@@ -133,7 +133,7 @@ public class UsrMemberController {
 
 		return rq.jsReplace(msg, afterLoginUri);
 	}
-
+	
 	@RequestMapping("/usr/member/findLoginId")
 	public String showFindLoginId() {
 		return "usr/member/findLoginId";
@@ -164,6 +164,8 @@ public class UsrMemberController {
 	public String showFindLoginPw() {
 		return "usr/member/findLoginPw";
 	}
+	
+
 
 //	@RequestMapping("/usr/member/doFindLoginPw")
 //	@ResponseBody
