@@ -58,3 +58,7 @@
 .card:hover{
     background-color:   #F5F5F5;
 }
+
+.border-change{
+    border-radius: 2px;
+}
