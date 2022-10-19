@@ -40,8 +40,7 @@
             </li>
             <c:if test="${rq.logined}">
             <li class="nav-item">
-<<<<<<< HEAD
-              <a class="nav-link active" href="#">마이페이지</a>
+              <a class="nav-link active" href="/usr/learnControl/mypage1">마이페이지</a>
             </li>
              <li class="nav-item">
               <a class="nav-link active" href="/usr/member/myPage/word">나만의 단어장</a>
@@ -49,9 +48,7 @@
             </c:if>
             <li class="nav-item">
               <a class="nav-link active" href="#">임시기능</a>
-=======
               <a class="nav-link active" href="/usr/dictionary/list">단어검색</a>
->>>>>>> 94bc267a001c9b2384cccf94f5f0a106dd6f2489
             </li>
           </ul>
           <div class="d-block d-md-block">
