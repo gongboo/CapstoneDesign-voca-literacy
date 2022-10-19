@@ -42,66 +42,7 @@
 		</div>
 	</form>
 
-<<<<<<< HEAD
-					<col />
-				</colgroup>
-				<thead>
-					<tr>
-					    <th></th>
-						<th>단어</th>
-						<th>품사</th>
-						<th>뜻</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="word" items="${words}">
-						<tr class="hover">
-							<td>${word.id}</td>
-							<td><a class="btn-text-link block w-full truncate"
-								href="${rq.getWordDetailUriFromWordList(word)}">${word.name}</a></td>
-							<td>${word.type}</td>
-							<td>${word.mean}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
 
-		<div class="page-menu mt-4">
-			<div class="btn-group justify-center">
-				<c:set var="pageMenuArmLen" value="9" />
-				<c:set var="startPage"
-					value="${page - pageMenuArmLen >= 1 ? page - pageMenuArmLen : 1}" />
-				<c:set var="endPage"
-					value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
-
-
-				<c:set var="pageBaseUri"
-					value="?searchKeyword=${param.searchKeyword}" />
-				<c:set var="pageBaseUri"
-					value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
-
-				<c:if test="${startPage > 1}">
-					<a class="btn btn-sm " href="${pageBaseUri}&page=1">1</a>
-					<c:if test="${startPage > 2}">
-						<a class="btn btn-sm btn-disabled">...</a>
-					</c:if>
-				</c:if>
-
-				<c:forEach begin="${startPage}" end="${endPage}" var="i">
-					<a class="btn btn-sm ${page == i ? 'btn-active' : '' }"
-						href="${pageBaseUri}&page=${i}">${i}</a>
-				</c:forEach>
-
-				<c:if test="${endPage < pagesCount}">
-					<c:if test="${endPage < pagesCount - 1}">
-						<a class="btn btn-sm btn-disabled">...</a>
-					</c:if>
-					<a class="btn btn-sm" href="${pageBaseUri}&page=${pagesCount}">${pagesCount}</a>
-				</c:if>
-=======
-  <div>
 	<p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>
   </div>
 </div>
@@ -111,14 +52,9 @@
 			<div class="col">
 			<h4>${word.name}</h4>
       <p>[${word.type}] ${word.mean}</p>
-			<a href="#" style="padding: 0px 10px 0px 0px" class="a-custom"
-				>자세히보기</a
-			><a href="#" style="padding: 0px 10px 0px 0px" class="a-custom"
-				>내 단어장에 추가</a
-			>
->>>>>>> 94bc267a001c9b2384cccf94f5f0a106dd6f2489
+			<a href="${rq.getWordDetailUriFromWordList(word)}" style="padding: 0px 10px 0px 0px" class="a-custom">자세히보기</a>
+			<a href="usr/member/myPage/addWord?id=${word.id}" style="padding: 0px 10px 0px 0px" class="a-custom">내 단어장에 추가</a>
 			</div>
-			<hr />
 		</div>
   	</c:forEach>
 </div>
@@ -130,9 +66,8 @@
 				value="${page - pageMenuArmLen >= 1 ? page - pageMenuArmLen : 1}" />
 			<c:set var="endPage"
 				value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
-
 			<c:set var="pageBaseUri"
-				value="${pageBaseUri}&searchKeyword=${param.searchKeyword}" />
+				value="$?searchKeyword=${param.searchKeyword}" />
 			<c:set var="pageBaseUri"
 				value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
 

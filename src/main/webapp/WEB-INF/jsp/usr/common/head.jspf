@@ -36,11 +36,11 @@
               <a class="nav-link active" href="/usr/learn/wordtest1">학습하기</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/usr/learnControl/mypage1">학습관리</a>
+              <a class="nav-link active" href="/usr/member/myPage/mypage1">학습관리</a>
             </li>
             <c:if test="${rq.logined}">
             <li class="nav-item">
-              <a class="nav-link active" href="/usr/learnControl/mypage1">마이페이지</a>
+              <a class="nav-link active" href="/usr/member/myPage/mypage1">마이페이지</a>
             </li>
              <li class="nav-item">
               <a class="nav-link active" href="/usr/member/myPage/word">나만의 단어장</a>

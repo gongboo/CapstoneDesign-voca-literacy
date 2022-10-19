@@ -51,6 +51,29 @@ public class UsrMyVocaController {
 		return "usr/member/myPage/word";
 	}
 	
+	 @RequestMapping("/usr/member/myPage/mypage2")
+	    public String showMyList(Model model,
+				@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
+				@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
+
+			member=rq.getLoginedMember();
+			int WordsCount = myvocaService.getWordsCount(searchKeywordTypeCode, searchKeyword, member.getId());
+
+			int itemsCountInAPage = 10;
+			int pagesCount = (int) Math.ceil((double) WordsCount / itemsCountInAPage);
+			List<Word> words = myvocaService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, member.getId());
+
+
+			model.addAttribute("page", page);
+			model.addAttribute("pagesCount", pagesCount);
+			model.addAttribute("WordsCount", WordsCount);
+			model.addAttribute("words", words);
+
+		
+			return "usr/member/myPage/mypage2";
+		}
+		
+	
 	@RequestMapping("/usr/member/myPage/addWord")
 	@ResponseBody
 	public String doAddWord(int id, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
