@@ -14,7 +14,7 @@
           <a class="nav-link active" aria-current="page" href="/usr/learn/wordtest1">어휘테스트</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>
+          <a class="nav-link" href="/usr/learn/wordtest_wrong">오답노트</a>
         </li>
       </ul>
     </div>

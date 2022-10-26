@@ -2,22 +2,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.kor.exam.utill.Ut"%>
 <c:set var="pageTitle" value="마이페이지" />
-<%@ include file="../../common/head.jspf"%>
+<%@ include file="../common/head.jspf"%>
     
 <nav class="navbar navbar-expand-md">
   <div class="container">
-    <a class="navbar-brand" href="/usr/member/myPage/mypage1">학습관리</a>
+    <a class="navbar-brand" href="/usr/learn/wordtest1">학습하기</a>
 
     <div class="navbar-collapse navbar-expand" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/usr/member/myPage/mypage1">마이리포트</a>
+          <a class="nav-link active" href="/usr/learn/wordtest1">어휘테스트</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/usr/member/myPage/mypage2">나의 단어장</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/usr/member/myPage/mypage3">오답 노트</a>
+          <a class="nav-link active" aria-current="page" href="/usr/learn/wordtest_wrong">오답노트</a>
         </li>
       </ul>
     </div>
@@ -30,4 +27,4 @@
         <div class="container"></div>
     </div>
 
-<%@ include file="../../common/foot.jspf"%>
+<%@ include file="../common/foot.jspf"%>
