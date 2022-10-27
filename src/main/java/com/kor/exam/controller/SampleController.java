@@ -32,6 +32,11 @@ public class SampleController {
         return "usr/home/shortTextRead";
     }
     
+    @RequestMapping("/usr/learn/wordtest_wrong")
+    public String showTestWrong() {
+        return "usr/home/wordtest_wrong";
+    }
+
     @RequestMapping("/usr/member/myPage/mypage1")
     public String showLearnControl() {
         return "usr/member/myPage/mypage1";

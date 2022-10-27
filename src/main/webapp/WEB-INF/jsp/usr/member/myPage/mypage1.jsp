@@ -6,7 +6,7 @@ prefix="c"%> <%@ page import="com.kor.exam.utill.Ut"%>
 
 <nav class="navbar navbar-expand-md">
   <div class="container">
-    <a class="navbar-brand" href="/usr/member/myPage/mypage1">학습관리</a>
+    <a class="navbar-brand" href="/usr/member/myPage/mypage1">마이페이지</a>
 
     <div class="navbar-collapse navbar-expand" id="navbarNav">
       <ul class="navbar-nav">
@@ -14,10 +14,7 @@ prefix="c"%> <%@ page import="com.kor.exam.utill.Ut"%>
           <a class="nav-link active" aria-current="page" href="/usr/member/myPage/mypage1">마이리포트</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/usr/member/myPage/mypage2">나의 단어장</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/usr/member/myPage/mypage3">오답 노트</a>
+          <a class="nav-link" href="/usr/member/myPage/mypage2">개인정보 수정</a>
         </li>
       </ul>
     </div>
