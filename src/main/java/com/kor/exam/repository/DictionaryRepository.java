@@ -44,7 +44,7 @@ public interface DictionaryRepository {
 						</otherwise>
 					</choose>
 				</if>
-				ORDER BY W.id DESC
+				ORDER BY W.id ASC
 				<if test="limitTake != -1">
 					LIMIT #{limitStart}, #{limitTake}
 				</if>
