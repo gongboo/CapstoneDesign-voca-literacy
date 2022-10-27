@@ -6,20 +6,24 @@ prefix="c"%>
 <div class="container">
     <div class="row">
         <div class="col-md-6" style="padding: 12px;">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">📝 테스트 보기</h4>
-                    <p>테스트로 학습합니다.</p>
+            <a href="/usr/learn/wordtest1" class="a-null">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">📝 테스트 보기</h4>
+                        <p>테스트로 학습합니다.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-6" style="padding: 12px;">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">🔎 단어 검색하기</h4>
-                    <p>모르는 단어를 검색합니다.</p>
+            <a href="/usr/dictionary/list" class="a-null">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">🔎 단어 검색하기</h4>
+                        <p>모르는 단어를 검색합니다.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
@@ -55,20 +59,24 @@ prefix="c"%>
 <div class="container">
     <div class="row">
         <div class="col-md-6" style="padding: 12px;">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">📚 나의 단어장 보기</h4>
-                    <p>내가 저장한 단어들을 봅니다.</p>
+            <a href="/usr/member/myPage/word" class="a-null">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">📚 나의 단어장 보기</h4>
+                        <p>내가 저장한 단어들을 봅니다.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-6" style="padding: 12px;">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">📈 나의 학습 상황</h4>
-                    <p>나의 학습 상승률을 확인합니다.</p>
+            <a href="/usr/member/myPage/mypage1" class="a-null">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">📈 나의 학습 상황</h4>
+                        <p>나의 학습 상승률을 확인합니다.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
     <nav class="navbar sticky-top navbar-expand-md" style="background-color: #ffffff;">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
-          <img src="/resource/C_logo.png" style="width: 150px;" />
+          <img src="/resource/logo_capstone_regularfont.png" style="width: 150px;" />
         </a>
         <button
           data-bs-toggle="collapse"

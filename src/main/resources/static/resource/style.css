@@ -48,10 +48,19 @@ body {
     text-decoration: none;
 }
 
+
 .a-custom:hover {
     color: green;
     /* text-decoration: underline; */
     /* text-decoration: none; */
+}
+.a-null {
+    color: black;
+    text-decoration: none;
+}
+
+.a-null:hover {
+    color: black;
 }
 
 .card{

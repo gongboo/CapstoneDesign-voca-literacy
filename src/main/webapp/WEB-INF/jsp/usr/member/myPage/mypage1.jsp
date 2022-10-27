@@ -3,6 +3,7 @@ pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c"%> <%@ page import="com.kor.exam.utill.Ut"%>
 <c:set var="pageTitle" value="마이페이지" />
 <%@ include file="../../common/head.jspf"%>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <nav class="navbar navbar-expand-md">
   <div class="container">
@@ -23,6 +24,39 @@ prefix="c"%> <%@ page import="com.kor.exam.utill.Ut"%>
 <div class="container">
   <p>현재까지 1000개의 단어를 학습했습니다.</p>
   <p>그래프</p>
+  <div>
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
 </div>
+<script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
 
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+ 
 <%@ include file="../../common/foot.jspf"%>
