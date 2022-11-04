@@ -96,31 +96,27 @@ public class SampleController {
 
     @RequestMapping("/imagesearch")
     @ResponseBody
-    public void ocrTestFunction() {// 지저분해서 죄송...
-        // System.out.println("Hello World!");
-        // Mat img = imread("C:/Reference/to/Pic.jpg");
-        // Mat hsv_image = new Mat();
-        Mat original_image = imread("src/main/resources/static/resource/IMG_6423.jpeg");
-        Mat hsv_image = new Mat();// hsv 이미지 수정
-        cvtColor(original_image, hsv_image, COLOR_BGR2HSV);// 여기까지 체크 완료
+    public void ocrTestFunction() {
 
-        // cvtColor(hsv_image, hsv_image, COLOR_BGR2HSV);// imgproc 모듈 확인하기
+        Mat original_image = imread("src/main/resources/static/resource/ocr_image/IMG_6423.jpeg");
+        Mat hsv_image = new Mat();// hsv 이미지 수정
+        cvtColor(original_image, hsv_image, COLOR_BGR2HSV);
+        // cvtColor(hsv_image, hsv_image, COLOR_BGR2HSV);// imgproc 모듈 이걸로 확인함 필요없는 코드
 
         Mat img_mask = new Mat();// 마스크 만들기
         inRange(hsv_image, new Mat(1, 1, CV_32SC4, new Scalar(0, 50, 200, 0)),
                 new Mat(1, 1, CV_32SC4, new Scalar(180, 255, 255, 0)), img_mask);
 
-        // 여기까지 확인함.
         Mat img_result = new Mat();// 마스크 and 연산
         bitwise_and(hsv_image, hsv_image, img_result, img_mask);
-        // imwrite("src/main/resources/static/resource/img_result.png", img_result);
+        // imwrite("src/main/resources/static/resource/img_result.png", img_result); //이미지 잘 나오나 확인해봄
 
         MatVector contours = new MatVector();
         findContours(img_mask, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
 
         long n = contours.size();
-        // Mat image_cropped = new Mat();
         int i = 0;
+        int count=0;
         for (i = 0; i < n; i++) {
             Rect rect = boundingRect(contours.get(i));
             if (rect.width() * rect.height() < 400) {
@@ -128,65 +124,31 @@ public class SampleController {
             }
 
             if (rect.width() / rect.height() > 1.5) {
+                count++;
                 Mat image_cropped = new Mat(original_image, rect);
-                imwrite(String.format("src/main/resources/static/resource/example%d.png", i), image_cropped);
-                // imwrite("src/main/resources/static/resource/example.png", image_cropped);
+                imwrite(String.format("src/main/resources/static/resource/ocr_image/example%d.png", count), image_cropped);
             }
         }
 
         //tesseract 시작
         Tesseract tesseract = new Tesseract();
-        //tesseract.setDatapath("D:/Tess4J/tessdata");추가적인 트레인 데이터 위치 사용 안함..
+        tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
 
-        // In case you don't have your own tessdata, let it also be extracted for you
-        File tessDataFolder = LoadLibs.extractTessResources("tessdata");
-        // Set the tessdata path
-        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
+//        // 자동으로 tessdata 찾는거 이렇게 한다는데 이걸로 작동 안함
+//        File tessDataFolder = LoadLibs.extractTessResources("tessdata");
+//        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
 
         tesseract.setLanguage("kor");
-        for (int j = 0; j < i; j++) {
-            File file = new File(String.format("src/main/resources/static/resource/example%d.png", j));
+        for (int j = 1; j <= count; j++) {
+            File file = new File(String.format("src/main/resources/static/resource/ocr_image/example%d.png", j));
             try {
                 String text = tesseract.doOCR(file);
                 System.out.print(text);
+                file.delete();
             } catch (TesseractException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
-        // path of your image file
-       
-        // for (int i = 0; i <= points.size(); i++) {
-        // // 너무 작은 영역 거르려면 거르고..이건 아직 안함
-        // Rect rect = Imgproc.boundingRect(points.get(i));
-
-        // if (rect.width / rect.height > 1.5) {
-        // Mat image_cropped = new Mat(img_result, rect);
-        // }
-        // Tesseract tesseract = new Tesseract();
-        // try {
-
-        // tesseract.setDatapath("D:/Tess4J/tessdata");
-
-        // // the path of your tess data folder
-        // // inside the extracted file
-        // String text = tesseract.doOCR(Mat2BufferedImage(image_cropped));
-
-        // // path of your image file
-        // System.out.print(text);
-        // } catch (TesseractException e) {
-        // e.printStackTrace();
-        // }
-        // }
-
     }
-
-    // static BufferedImage Mat2BufferedImage(Mat matrix) throws Exception {
-    // MatOfByte mob = new MatOfByte();
-    // Imgcodecs.imencode(".jpg", matrix, mob);
-    // byte ba[] = mob.toArray();
-
-    // BufferedImage bi = ImageIO.read(new ByteArrayInputStream(ba));
-    // return bi;
-    // }
 }
