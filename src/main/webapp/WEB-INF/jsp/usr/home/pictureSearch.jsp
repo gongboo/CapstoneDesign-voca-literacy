@@ -43,7 +43,7 @@
 	</form> -->
     <form>
         <input type="file" accept="image/*">
-        <button class="btn btn-custom" type="submit">검색</button>
+        <a class="btn btn-custom" href="/imagesearch">검색</a>
     </form> 
 
   <div>
