@@ -40,12 +40,12 @@ public class MyVocaService {
 		return myvocaRepository.getWordbyId(id);
 	}
 	
-	public void addWord(int memberId, int wordId) {
-		myvocaRepository.addWord(memberId,wordId);
+	public void addWord(int memberId, String name) {
+		myvocaRepository.addWord(memberId,name);
 	}
 	
-	public void deleteWord(int memberId, int wordId) {
-		myvocaRepository.deleteWord(memberId,wordId);
+	public void deleteWord(int memberId,String name) {
+		myvocaRepository.deleteWord(memberId,name);
 	}
 
 

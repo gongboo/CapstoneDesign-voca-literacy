@@ -15,6 +15,7 @@ import com.kor.exam.vo.Word;
 public class DictionaryService {
 	private DictionaryRepository dictionaryRepository;
 
+	
 	public DictionaryService(DictionaryRepository dictionaryRepository) {
 		this.dictionaryRepository = dictionaryRepository;
 	}
@@ -22,16 +23,19 @@ public class DictionaryService {
 	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page) {
 		int limitStart = (page - 1) * itemsCountInAPage;
 		int limitTake = itemsCountInAPage;
-
-		List<Word> words = dictionaryRepository.getForPrintWords(searchKeyword, searchKeywordTypeCode, limitStart, limitTake);
-
+//		List<Word> words = dictionaryRepository.getForPrintWords(searchKeyword, searchKeywordTypeCode, limitStart, limitTake);
+		List<Word> words = dictionaryRepository.MakeDictionary(searchKeyword, searchKeywordTypeCode, limitStart, limitTake);
 
 		return words;
 	}
 
-	public Word getForPrintWord(int id) {
-		Word word = dictionaryRepository.getWordbyId(id);
-
+//	public Word getForPrintWord(int id) {
+//		Word word = dictionaryRepository.getWordbyId(id);
+//
+//		return word;
+//	}
+	public Word getForPrintWord(String name) {
+		Word word = dictionaryRepository.getWordbyName(name);
 		return word;
 	}
 
@@ -42,6 +46,7 @@ public class DictionaryService {
 	public Word getWordbyId(int id) {
 		return dictionaryRepository.getWordbyId(id);
 	}
+	
 
 
 }

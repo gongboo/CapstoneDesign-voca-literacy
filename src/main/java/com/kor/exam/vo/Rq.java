@@ -185,11 +185,11 @@ public class Rq {
 	}
 
 	public String getWordDetailUriFromWordList(Word word) {
-		return "../dictionary/detail?id=" + word.getId()  + "&listUri=" + getEncodedCurrentUri() ;
+		return "../dictionary/detail?name=" + word.getName()  + "&listUri=" + getEncodedCurrentUri() ;
 	}
 	
 	public String addWordtoMyDictionary(Word word) {
-		return "../dictionary/addWord?id=" + word.getId()  + "&listUri=" + getEncodedCurrentUri() ;
+		return "../dictionary/addWord?name=" + word.getName()  + "&listUri=" + getEncodedCurrentUri() ;
 	}
 	
 

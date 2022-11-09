@@ -52,12 +52,6 @@
 				</colgroup>
 				<tbody>
 					<tr>
-						<th>번호</th>
-						<td>
-							<div class="badge badge-primary">${word.id}</div>
-						</td>
-					</tr>
-					<tr>
 						<th>단어</th>
 						<td>${word.name}</td>
 					</tr>
@@ -69,7 +63,14 @@
 						<th>뜻</th>
 						<td>${word.mean}</td>
 					</tr>
-					
+					<tr>
+						<th>고유어 여부</th>
+						<td>${word.origin}</td>
+					</tr>
+					<tr>
+						<th>예문</th>
+						<td>${word.example}</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -82,7 +83,7 @@
 				<a class="btn btn-link" href="${param.listUri}">뒤로가기</a>
 			</c:if>
 			<c:if test="${rq.logined}"> 
-			<form method="post" action="../member/myPage/addWord?id=${word.id}">
+			<form method="post" action="../member/myPage/addWord?name=${word.name}">
            <button class="btn btn-link" type="submit">내 단어장에 추가하기</button></form>
             </c:if>
           
