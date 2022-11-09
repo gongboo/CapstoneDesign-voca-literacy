@@ -23,10 +23,10 @@ public interface MyVocaRepository {
 
 	@Select("""
 			<script>
-				SELECT W.*
+				SELECT W.name, group_concat(distinct W.type separator ' | ') as type, group_concat(W.mean separator ' | ') as mean
 				FROM MyVoca AS V
 			    LEFT JOIN word AS W
-			    ON V.wordId = W.id
+			    ON V.WordName = W.name
 				WHERE V.memberId = #{memberId}
 				<if test="searchKeyword != ''">
 					<choose>
@@ -45,6 +45,7 @@ public interface MyVocaRepository {
 						</otherwise>
 					</choose>
 				</if>
+				GROUP BY W.name
 				ORDER BY W.id DESC
 				<if test="limitTake != -1">
 					LIMIT #{limitStart}, #{limitTake}
@@ -61,7 +62,7 @@ public interface MyVocaRepository {
 			SELECT COUNT(*) AS cnt
 			FROM MyVoca AS V
 		    LEFT JOIN word AS W
-		    ON V.wordId = W.id
+		    ON V.WordName = W.name
 			WHERE V.memberId = #{memberId}
 			<if test="searchKeyword != ''">
 				<choose>
@@ -99,17 +100,17 @@ public interface MyVocaRepository {
 			SET regDate = NOW(),
 			updateDate = NOW(),
 			memberId = #{memberId},
-			wordId = #{wordId}
+			WordName = #{name}
 			</script>
 			""")
-	public void addWord(int memberId, int wordId);
+	public void addWord(int memberId, String name);
 	
 	@Delete("""
 			<script>
 			Delete FROM MyVoca
-			where memberId = #{memberId} and wordId = #{wordId}
+			where memberId = #{memberId} and WordName = #{name}
 			</script>
 			""")
-	public void deleteWord(int memberId, int wordId);
+	public void deleteWord(int memberId, String name);
 	
 }

@@ -76,22 +76,20 @@ public class UsrMyVocaController {
 	
 	@RequestMapping("/usr/member/myPage/addWord")
 	@ResponseBody
-	public String doAddWord(int id, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
+	public String doAddWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
 		member = rq.getLoginedMember();
-		Word word = dictionaryService.getWordbyId(id);
-		myvocaService.addWord(member.getId(), word.getId());
+		myvocaService.addWord(member.getId(), name);
 
-		return rq.jsReplace(Ut.f("나만의 단어장에 %s을/를 추가하였습니다.",word.getName()), afterFindLoginIdUri);
+		return rq.jsReplace(Ut.f("나만의 단어장에 %s을/를 추가하였습니다.",name), afterFindLoginIdUri);
 	}
 	
 	@RequestMapping("/usr/member/myPage/deleteWord")
 	@ResponseBody
-	public String doDeleteWord(int id, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
+	public String doDeleteWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
 		member = rq.getLoginedMember();
-		Word word = dictionaryService.getWordbyId(id);
-		myvocaService.deleteWord(member.getId(), word.getId());
+		myvocaService.deleteWord(member.getId(), name);
 
-		return rq.jsReplace(Ut.f("나만의 단어장에서 %s을/를 삭제하였습니다.",word.getName()), afterFindLoginIdUri);
+		return rq.jsReplace(Ut.f("나만의 단어장에서 %s을/를 삭제하였습니다.",name), afterFindLoginIdUri);
 	}
 	
 }

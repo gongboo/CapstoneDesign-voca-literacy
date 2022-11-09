@@ -32,7 +32,8 @@
 				<option disabled="disabled">검색타입</option>
 				<option selected value="name">단어</option>
 				<option value="type">품사</option>
-				<option value="name,type">단어,품사</option>
+				<option value="mean">뜻</option>
+				<option value="name,mean">단어,뜻</option>
 			</select>
 			</div>
 
