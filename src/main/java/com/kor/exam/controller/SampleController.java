@@ -17,10 +17,10 @@ public class SampleController {
         return "usr/home/wordtest1";
     }
 
-    @RequestMapping("/usr/learn/wordtest2")
-    public String showLearn2() {
-        return "usr/home/wordtest2";
-    }
+//    @RequestMapping("/usr/learn/wordtest2")
+//    public String showLearn2() {
+//        return "usr/home/wordtest2";
+//    }
 
     @RequestMapping("/usr/learn/wordtest3")
     public String showLearn3() {

@@ -47,6 +47,13 @@ public class DictionaryService {
 		return dictionaryRepository.getWordbyId(id);
 	}
 	
+	public List<Word> RandomWordList(){
+		return dictionaryRepository.RandomWordList();
+	}
+	
+	public List<String> RandomMeanList(){
+		return dictionaryRepository.RandomMeanList();
+	}
 
 
 }
