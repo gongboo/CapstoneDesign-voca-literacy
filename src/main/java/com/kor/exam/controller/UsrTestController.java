@@ -41,20 +41,19 @@ public class UsrTestController {
 		List<String> examples = dictionaryService.RandomMeanList();
 		List<Question>questions = new ArrayList<>();
 		Random random = new Random();
-		
-		for(int i=0;i<examples.size();i++) {
-			for(int j=0;j<words.size();j++){
+
+		for(int j=0;j<words.size();j++) {
+			for(int i=0;i<examples.size();i++){
 			if(examples.get(i)==words.get(j).getMean()||examples.get(i).isEmpty()) {
-			examples.remove(i);	
+			examples.remove(i--);
 			}
-			
 			}
 		}
 		for(int i=0;i<words.size();i++) {
 			int ran = random.nextInt(4);
 			List<String>temp = new ArrayList<>();
 			for(int j=0;j<5;j++) {
-				int ran2 = random.nextInt(examples.size());
+				int ran2 = random.nextInt(examples.size()-1);
 				if(j==ran) {
 					temp.add(words.get(i).getMean());
 				}
