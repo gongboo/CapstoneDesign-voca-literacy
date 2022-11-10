@@ -29,66 +29,80 @@
         </div>
     </div>
     <div class="container" style="padding: 12px;">
-        <div class="card" id="question-1">
-            <div class="card-body" style="height: 247.242px;">
-                <h4 class="card-title">문제1</h4>
-                <p class="card-text">문제 1의 내용</p>
-                <div class="form-check">
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-1" name="question-1" value="1"><label class="form-check-label" for="formCheck-1-1">선택지1</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-2" name="question-1" value="2"><label class="form-check-label" for="formCheck-1-2">선택지2</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-3" name="question-1" value="3"><label class="form-check-label" for="formCheck-1-3">선택지3</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-4" name="question-1" value="4"><label class="form-check-label" for="formCheck-1-4">선택지4</label></div>
+        <c:forEach var="question" items="${questions}">
+            <div class="card" id="question-${question.index}">
+                <div class="card-body" style="height: 247.242px;">
+                    <h4 class="card-title">문제${question.index}</h4>
+                    <p class="card-text">${question.word.name}</p>
+                    <div class="form-check">
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${question.index}-1" name="question-${question.index}" value="1"><label class="form-check-label" for="formCheck-${question.index}-1">선택지1</label></div>
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${question.index}-2" name="question-${question.index}" value="2"><label class="form-check-label" for="formCheck-${question.index}-2">선택지2</label></div>
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${question.index}-3" name="question-${question.index}" value="3"><label class="form-check-label" for="formCheck-${question.index}-3">선택지3</label></div>
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${question.index}-4" name="question-${question.index}" value="4"><label class="form-check-label" for="formCheck-${question.index}-4">선택지4</label></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card" id="question-2" style="display: none">
-            <div class="card-body" style="height: 247.242px;">
-                <h4 class="card-title">문제2</h4>
-                <p class="card-text">문제 1의 내용</p>
-                <div class="form-check">
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-1" name="question-2" value="1"><label class="form-check-label" for="formCheck-2-1">선택지1</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-2" name="question-2" value="2"><label class="form-check-label" for="formCheck-2-2">선택지2</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-3" name="question-2" value="3"><label class="form-check-label" for="formCheck-2-3">선택지3</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-4" name="question-2" value="4"><label class="form-check-label" for="formCheck-2-4">선택지4</label></div>
-                </div>
-            </div>
-        </div>
-        <div class="card" id="question-3" style="display: none">
-            <div class="card-body" style="height: 247.242px;">
-                <h4 class="card-title">문제3</h4>
-                <p class="card-text">문제 1의 내용</p>
-                <div class="form-check">
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-1" name="question-3" value="1"><label class="form-check-label" for="formCheck-3-1">선택지1</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-2" name="question-3" value="2"><label class="form-check-label" for="formCheck-3-2">선택지2</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-3" name="question-3" value="3"><label class="form-check-label" for="formCheck-3-3">선택지3</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-4" name="question-3" value="4"><label class="form-check-label" for="formCheck-3-4">선택지4</label></div>
-                </div>
-            </div>
-        </div>
-        <div class="card" id="question-4" style="display: none">
-            <div class="card-body" style="height: 247.242px;">
-                <h4 class="card-title">문제4</h4>
-                <p class="card-text">문제 1의 내용</p>
-                <div class="form-check">
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-1" name="question-4" value="1"><label class="form-check-label" for="formCheck-4-1">선택지1</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-2" name="question-4" value="2"><label class="form-check-label" for="formCheck-4-2">선택지2</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-3" name="question-4" value="3"><label class="form-check-label" for="formCheck-4-3">선택지3</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-4" name="question-4" value="4"><label class="form-check-label" for="formCheck-4-4">선택지4</label></div>
-                </div>
-            </div>
-        </div>
-        <div class="card" id="question-5" style="display: none">
-            <div class="card-body" style="height: 247.242px;">
-                <h4 class="card-title">문제5</h4>
-                <p class="card-text">문제 1의 내용</p>
-                <div class="form-check">
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-1" name="question-5" value="1"><label class="form-check-label" for="formCheck-5-1">선택지1</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-2" name="question-5" value="2"><label class="form-check-label" for="formCheck-5-2">선택지2</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-3" name="question-5" value="3"><label class="form-check-label" for="formCheck-5-3">선택지3</label></div>
-                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-4" name="question-5" value="4"><label class="form-check-label" for="formCheck-5-4">선택지4</label></div>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
+<%--        <div class="card" id="question-1">--%>
+<%--            <div class="card-body" style="height: 247.242px;">--%>
+<%--                <h4 class="card-title">문제1</h4>--%>
+<%--                <p class="card-text">문제 1의 내용</p>--%>
+<%--                <div class="form-check">--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-1" name="question-1" value="1"><label class="form-check-label" for="formCheck-1-1">선택지1</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-2" name="question-1" value="2"><label class="form-check-label" for="formCheck-1-2">선택지2</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-3" name="question-1" value="3"><label class="form-check-label" for="formCheck-1-3">선택지3</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1-4" name="question-1" value="4"><label class="form-check-label" for="formCheck-1-4">선택지4</label></div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="card" id="question-2" style="display: none">--%>
+<%--            <div class="card-body" style="height: 247.242px;">--%>
+<%--                <h4 class="card-title">문제2</h4>--%>
+<%--                <p class="card-text">문제 1의 내용</p>--%>
+<%--                <div class="form-check">--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-1" name="question-2" value="1"><label class="form-check-label" for="formCheck-2-1">선택지1</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-2" name="question-2" value="2"><label class="form-check-label" for="formCheck-2-2">선택지2</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-3" name="question-2" value="3"><label class="form-check-label" for="formCheck-2-3">선택지3</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2-4" name="question-2" value="4"><label class="form-check-label" for="formCheck-2-4">선택지4</label></div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="card" id="question-3" style="display: none">--%>
+<%--            <div class="card-body" style="height: 247.242px;">--%>
+<%--                <h4 class="card-title">문제3</h4>--%>
+<%--                <p class="card-text">문제 1의 내용</p>--%>
+<%--                <div class="form-check">--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-1" name="question-3" value="1"><label class="form-check-label" for="formCheck-3-1">선택지1</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-2" name="question-3" value="2"><label class="form-check-label" for="formCheck-3-2">선택지2</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-3" name="question-3" value="3"><label class="form-check-label" for="formCheck-3-3">선택지3</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3-4" name="question-3" value="4"><label class="form-check-label" for="formCheck-3-4">선택지4</label></div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="card" id="question-4" style="display: none">--%>
+<%--            <div class="card-body" style="height: 247.242px;">--%>
+<%--                <h4 class="card-title">문제4</h4>--%>
+<%--                <p class="card-text">문제 1의 내용</p>--%>
+<%--                <div class="form-check">--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-1" name="question-4" value="1"><label class="form-check-label" for="formCheck-4-1">선택지1</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-2" name="question-4" value="2"><label class="form-check-label" for="formCheck-4-2">선택지2</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-3" name="question-4" value="3"><label class="form-check-label" for="formCheck-4-3">선택지3</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4-4" name="question-4" value="4"><label class="form-check-label" for="formCheck-4-4">선택지4</label></div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="card" id="question-5" style="display: none">--%>
+<%--            <div class="card-body" style="height: 247.242px;">--%>
+<%--                <h4 class="card-title">문제5</h4>--%>
+<%--                <p class="card-text">문제 1의 내용</p>--%>
+<%--                <div class="form-check">--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-1" name="question-5" value="1"><label class="form-check-label" for="formCheck-5-1">선택지1</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-2" name="question-5" value="2"><label class="form-check-label" for="formCheck-5-2">선택지2</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-3" name="question-5" value="3"><label class="form-check-label" for="formCheck-5-3">선택지3</label></div>--%>
+<%--                  <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-5-4" name="question-5" value="4"><label class="form-check-label" for="formCheck-5-4">선택지4</label></div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
         <div class="card" id="score" style="display: none">
             <div class="card-body" style="height: 247.242px;">
                 <h4 class="card-title">결과</h4>
