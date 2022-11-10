@@ -164,4 +164,24 @@ public interface DictionaryRepository {
 			""")
 	public Word getWordbyName(String name);
 	
+	
+	@Select("""
+			<script>
+			SELECT *
+			FROM word
+			ORDER BY RAND() LIMIT 10
+			</script>
+			""")
+	public List<Word> RandomWordList();
+	
+
+	@Select("""
+			<script>
+			SELECT word.mean
+			FROM word
+			ORDER BY RAND() LIMIT 50
+			</script>
+			""")
+	public List<String> RandomMeanList();
+	
 }
