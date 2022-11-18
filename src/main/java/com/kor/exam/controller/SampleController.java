@@ -15,6 +15,8 @@ import javax.imageio.ImageIO;
 // import org.opencv.core.Scalar;
 // import org.opencv.imgcodecs.Imgcodecs;
 //import org.opencv.imgproc.Imgproc;
+
+import org.openkoreantext.processor.KoreanTokenJava;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,6 +52,13 @@ import static org.bytedeco.opencv.global.opencv_imgcodecs.*;
 // import net.sourceforge.tess4j.TesseractException;
 import net.sourceforge.tess4j.*;
 import net.sourceforge.tess4j.util.LoadLibs;
+
+//형태소 분석기 okt
+import org.openkoreantext.processor.OpenKoreanTextProcessorJava;
+import org.openkoreantext.processor.phrase_extractor.KoreanPhraseExtractor;
+import org.openkoreantext.processor.tokenizer.KoreanTokenizer;
+import scala.collection.Seq;
+import java.util.ArrayList;
 
 //화면 구성을 위한 임시 컨트롤러들 입니다.
 @Controller
@@ -139,16 +148,38 @@ public class SampleController {
 //        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
 
         tesseract.setLanguage("kor");
+        String textall="";
         for (int j = 1; j <= count; j++) {
             File file = new File(String.format("src/main/resources/static/resource/ocr_image/example%d.png", j));
             try {
                 String text = tesseract.doOCR(file);
-                System.out.print(text);
+                String a=text.replaceAll("(?<=\n|^)[\t ]+|[\t ]+(?=$|\n)", "").replaceAll("(?<=.)\n(?=.)", "");
+                textall+=a;
+                System.out.print(a);
                 file.delete();
+//                System.out.print(textall);
             } catch (TesseractException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+    }
+
+    List<String> getProcessedKoreansList(String input_string){
+        String textall="한국어를 처리하는 예시입니닼ㅋㅋㅋㅋ";
+        // Normalize
+        CharSequence normalized = OpenKoreanTextProcessorJava.normalize(input_string);
+        // Tokenize
+        Seq<KoreanTokenizer.KoreanToken> tokens = OpenKoreanTextProcessorJava.tokenize(normalized);
+        List<String> text_lists = new ArrayList<String>();
+        List<KoreanTokenJava> tokenLists=OpenKoreanTextProcessorJava.tokensToJavaKoreanTokenList(tokens);
+
+        for (int i=0;i<tokenLists.size();i++){
+            text_lists.add(tokenLists.get(i).getText());
+            if (tokenLists.get(i).getStem()!="") {
+                text_lists.add(tokenLists.get(i).getStem());
+            }
+        }
+        return text_lists;
     }
 }
