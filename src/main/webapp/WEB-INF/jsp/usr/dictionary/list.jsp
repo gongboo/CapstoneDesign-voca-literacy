@@ -3,50 +3,86 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="Dictionary" />
 <%@ include file="../common/head.jspf"%>
-<nav class="navbar navbar-expand-md">
-  <div class="container">
-    <a class="navbar-brand" href="/usr/dictionary/list">단어검색</a>
+<div id="top-sticky">
+		<div class="container top-inner">
+				<a class="btn btn-custom" aria-current="page" href="/usr/dictionary/list">사전검색</a>
+				<a class="btn btn-custom" href="/usr/dictionary/pic">사진 검색</a>
 
-    <div class="navbar-collapse navbar-expand" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/usr/dictionary/list">사전검색</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/usr/dictionary/pic">사진 검색</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+			<form class="flex" style="border: 2px solid white">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<select
+								data-value="${param.searchKeywordTypeCode}"
+								name="searchKeywordTypeCode" class="form-select w-auto border-change">
+							<option disabled="disabled">검색타입</option>
+							<option selected value="name">단어</option>
+							<option value="type">품사</option>
+							<option value="mean">뜻</option>
+							<option value="name,mean">단어,뜻</option>
+						</select>
+					</div>
 
-
-<div class="container">
-  
-	<form class="flex">
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<select
-				data-value="${param.searchKeywordTypeCode}"
-				name="searchKeywordTypeCode" class="form-select w-auto border-change">
-				<option disabled="disabled">검색타입</option>
-				<option selected value="name">단어</option>
-				<option value="type">품사</option>
-				<option value="mean">뜻</option>
-				<option value="name,mean">단어,뜻</option>
-			</select>
-			</div>
-
-			<input class="form-control" name="searchKeyword" type="text" placeholder="검색어"
-							maxlength="20" value="${param.searchKeyword}"/>
-			<button class="btn btn-custom" type="submit">검색</button>
+					<input class="form-control" name="searchKeyword" type="text" placeholder="검색어"
+						   maxlength="20" value="${param.searchKeyword}"/>
+					<button class="btn btn-custom" type="submit">검색</button>
+				</div>
+			</form>
+			<p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>
 		</div>
-	</form>
 
-
-	<p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>
-  </div>
+	<div class="container" id="menu-container">
+		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/dictionary/list">검색하기</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+	</div>
 </div>
+
+
+<%--<nav class="navbar navbar-expand-md">--%>
+<%--  <div class="container">--%>
+<%--    <a class="navbar-brand" href="/usr/dictionary/list">단어검색</a>--%>
+
+<%--    <div class="navbar-collapse navbar-expand" id="navbarNav">--%>
+<%--      <ul class="navbar-nav">--%>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link active" aria-current="page" href="/usr/dictionary/list">사전검색</a>--%>
+<%--        </li>--%>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link" href="/usr/dictionary/pic">사진 검색</a>--%>
+<%--        </li>--%>
+<%--      </ul>--%>
+<%--    </div>--%>
+<%--  </div>--%>
+<%--</nav>--%>
+
+
+<%--<div class="container">--%>
+<%--  --%>
+<%--	<form class="flex">--%>
+<%--		<div class="input-group">--%>
+<%--			<div class="input-group-prepend">--%>
+<%--				<select--%>
+<%--				data-value="${param.searchKeywordTypeCode}"--%>
+<%--				name="searchKeywordTypeCode" class="form-select w-auto border-change">--%>
+<%--				<option disabled="disabled">검색타입</option>--%>
+<%--				<option selected value="name">단어</option>--%>
+<%--				<option value="type">품사</option>--%>
+<%--				<option value="mean">뜻</option>--%>
+<%--				<option value="name,mean">단어,뜻</option>--%>
+<%--			</select>--%>
+<%--			</div>--%>
+
+<%--			<input class="form-control" name="searchKeyword" type="text" placeholder="검색어"--%>
+<%--							maxlength="20" value="${param.searchKeyword}"/>--%>
+<%--			<button class="btn btn-custom" type="submit">검색</button>--%>
+<%--		</div>--%>
+<%--	</form>--%>
+
+
+<%--	<p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>--%>
+<%--  </div>--%>
+<%--</div>--%>
+<div class="container content-container">
 <div class="col">
 	<c:forEach var="word" items="${words}">
 		<div class="container" style="padding: 12px">
@@ -94,7 +130,7 @@
 	</div>
 </div>
 
-
+</div>
 
 
 <%@ include file="../common/foot.jspf"%>

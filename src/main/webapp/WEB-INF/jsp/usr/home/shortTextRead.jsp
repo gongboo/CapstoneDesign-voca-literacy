@@ -3,27 +3,27 @@
 <%@ page import="com.kor.exam.utill.Ut"%>
 <c:set var="pageTitle" value="어휘 테스트" />
 <%@ include file="../common/head.jspf"%>
-    
-<nav class="navbar navbar-expand-md">
-  <div class="container">
-    <a class="navbar-brand" href="/usr/learn/wordtest1">학습하기</a>
-  <div class="navbar-collapse navbar-expand" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="/usr/learn/wordtest1">어휘테스트</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/usr/learn/wordtest_wrong">오답노트</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/usr/learn/shortTextRead">문학읽기</a>
-        </li>
-      </ul>
+
+<div id="top-sticky">
+    <div class="container top-inner">
+        <form class="flex" style="border: 2px solid white">
+            <div class="input-group">
+
+                <input class="form-control" name="searchKeyword" type="text" placeholder="지문을 입력하세요"
+                       maxlength="1000" value=""/>
+                <button class="btn btn-custom" type="submit">입력</button>
+            </div>
+        </form>
     </div>
-  </div>
-  </div>
-</nav>
-    <div class="container">
+
+    <div class="container" id="menu-container">
+        <a class="badge rounded-pill menu-pill-button-selected" href="/usr/dictionary/list">검색하기</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+    </div>
+</div>
+
+    <div class="container content-container">
         <h5 style="text-align: left;">오늘의 짧은 글</h5>
     </div>
 

@@ -4,31 +4,49 @@
 <%@ page import="com.kor.exam.utill.Ut"%>
 <c:set var="pageTitle" value="어휘 테스트" />
 <%@ include file="../common/head.jspf"%>
-    
-<nav class="navbar navbar-expand-md">
-  <div class="container">
-    <a class="navbar-brand" href="#">학습하기</a>
+<div id="top-sticky">
+	<div class="container top-inner">
+		<p style="text-align: center">남은 시간</p>
+		<p id="timer-time" style="text-align: center">3:00</p>
+<%--		<p>푼 문제</p>--%>
+<%--		<div class="progress">--%>
+<%--			<div class="progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color:var(--main-point-color);">50%</div>--%>
+<%--		</div>--%>
+	</div>
 
-    <div class="navbar-collapse navbar-expand" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">어휘테스트</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<div class="container">
+	<div class="container" id="menu-container">
+		<a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
+		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/learn/wordtest1">테스트 보기</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+	</div>
+</div>
+<%--<nav class="navbar navbar-expand-md">--%>
+<%--  <div class="container">--%>
+<%--    <a class="navbar-brand" href="#">학습하기</a>--%>
+
+<%--    <div class="navbar-collapse navbar-expand" id="navbarNav">--%>
+<%--      <ul class="navbar-nav">--%>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link active" aria-current="page" href="#">어휘테스트</a>--%>
+<%--        </li>--%>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>--%>
+<%--        </li>--%>
+<%--      </ul>--%>
+<%--    </div>--%>
+<%--  </div>--%>
+<%--</nav>--%>
+
+<div class="container content-container">
 <div class="col">
 	<c:forEach var="question" items="${questions}" varStatus="status">
-		<div class="card" id="question-${status.count}"><!--count라고 해야하나-->
-			<div class="card-body">
-				<h4 class="card-title">문제${status.count}</h4>
-				<p class="card-text">${question.word.name}</p>
+		<div class="container" id="question-${status.count}">
+			<div class="container">
+				<h4>문제${status.count}</h4>
+				<p>${question.word.name}</p>
+			</div>
+
 				<div class="form-check">
 					<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${status.count}-1" name="question-${status.count}" value="1"><label class="form-check-label" for="formCheck-${status.count}-1">${question.examples[0]}</label></div>
 					<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${status.count}-2" name="question-${status.count}" value="2"><label class="form-check-label" for="formCheck-${status.count}-2">${question.examples[1]}</label></div>
@@ -36,26 +54,27 @@
 					<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${status.count}-4" name="question-${status.count}" value="4"><label class="form-check-label" for="formCheck-${status.count}-4">${question.examples[3]}</label></div>
 					<div class="form-check"><input class="form-check-input" type="radio" id="formCheck-${status.count}-5" name="question-${status.count}" value="5"><label class="form-check-label" for="formCheck-${status.count}-5">${question.examples[4]}</label></div>
 				</div>
-			</div>
 		</div>
 	</c:forEach>
-</div>
+
 </div>
 <div class="container">
 	<div class="col">
 		<div class="card" id="score" style="display: none">
-			<div class="card-body" style="height: 247.242px;">
+			<div class="card-body">
 				<h4 class="card-title">결과</h4>
 				<p class="card-text" id="result-num">test</p>
 			</div>
 		</div>
 	</div>
 </div>
+
 <br>
-</div>
+
 <div class="container">
 	<div class="col"  id="next-button"><button class="btn btn-custom" onclick="show_next_question()">다음 문제</button></div>
 	<div class="col" id="answer-button" style="display: none"><button class="btn btn-custom" onclick="submit_answer()">제출하기</button></div>
+</div>
 </div>
 <script>
 	var cur_question=[1,0,0,0,0,0,0,0,0,0];
@@ -135,6 +154,24 @@
 		});
 
 	}
+
+	var time = 180;
+	var min = "";
+	var sec = "";
+
+	var x = setInterval(function() {
+		min = parseInt(time/60);
+		sec = time%60;
+
+		document.getElementById("timer-time").innerHTML = min +":"+ sec;
+		time--;
+
+		if (time < 0) {
+			clearInterval(x);
+			document.getElementById("timer-time").innerHTML = "시간초과";
+			submit_answer();//submit answer가 마지막 문제일때 넘기는거라서 아닐 때도 넘기도록 수정하기
+		}
+	}, 1000);
 </script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 

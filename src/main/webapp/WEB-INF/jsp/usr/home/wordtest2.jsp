@@ -3,23 +3,24 @@
 <%@ page import="com.kor.exam.utill.Ut"%>
 <c:set var="pageTitle" value="어휘 테스트" />
 <%@ include file="../common/head.jspf"%>
-    
-<nav class="navbar navbar-expand-md">
-  <div class="container">
-    <a class="navbar-brand" href="#">학습하기</a>
 
-    <div class="navbar-collapse navbar-expand" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">어휘테스트</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+<%--<nav class="navbar navbar-expand-md">--%>
+<%--  <div class="container">--%>
+<%--    <a class="navbar-brand" href="#">학습하기</a>--%>
+
+<%--    <div class="navbar-collapse navbar-expand" id="navbarNav">--%>
+<%--      <ul class="navbar-nav">--%>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link active" aria-current="page" href="#">어휘테스트</a>--%>
+<%--        </li>--%>
+<%--        <li class="nav-item">--%>
+<%--          <a class="nav-link" href="/usr/learn/shortTextRead">짧은 글읽기</a>--%>
+<%--        </li>--%>
+<%--      </ul>--%>
+<%--    </div>--%>
+<%--  </div>--%>
+<%--</nav>--%>
     <div class="container">
         <h5 style="text-align: left;">남은 시간: 10:00</h5>
     </div>
@@ -30,7 +31,7 @@
     </div>
     <div class="container" style="padding: 12px;">
         <c:forEach var="question" items="${questions}">
-            <div class="card" id="question-${question.index}">
+            <div class="card" id="question-${question.index}"><!--count라고 해야하나-->
                 <div class="card-body" style="height: 247.242px;">
                     <h4 class="card-title">문제${question.index}</h4>
                     <p class="card-text">${question.word.name}</p>
