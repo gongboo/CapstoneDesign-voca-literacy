@@ -54,7 +54,7 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public List<Word> getForPrintWords(String searchKeyword, String searchKeywordTypeCode,
-			int limitStart, int limitTake);
+									   int limitStart, int limitTake);
 
 //	 id int(10) not null primary key auto_increment,
 //	 name char(50) not null,
@@ -76,7 +76,7 @@ public interface DictionaryRepository {
 //	 example char (100),
 //	 test_cnt int(20) not null default '0',
 //	 search_cnt int(20) not null default '0'
-	
+
 	@Select("""
 			<script>
 			SELECT W.name, group_concat(distinct W.type separator ' | ') as type, group_concat(W.mean separator ' | ') as mean
@@ -110,8 +110,8 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public List<Word> MakeDictionary(String searchKeyword, String searchKeywordTypeCode,
-			int limitStart, int limitTake);
-	
+									 int limitStart, int limitTake);
+
 	public int getLastInsertId();
 
 	@Select("""
@@ -142,7 +142,7 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public int getWordsCount(String searchKeywordTypeCode, String searchKeyword);
-	
+
 
 
 	@Select("""
@@ -153,35 +153,54 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public Word getWordbyId(int id);
-	
+
 	@Select("""
 			<script>
-			SELECT W.name, group_concat(distinct W.origin separator ' | ') as origin, group_concat(distinct W.type separator ' | ') as type, group_concat(W.mean separator ' | ') as mean, group_concat(W.example separator ' | ') as example
-			FROM word as W
-			WHERE W.name= #{name}
-			GROUP BY W.name
+			SELECT *
+			from word as W
+			WHERE W.name LIKE CONCAT('%', trim(#{name}), '%')
+			</script>
+			""")
+	public List<Word> getWordsbyName(String name);
+
+	@Select("""
+			<script>
+			SELECT *
+			from word as W
+			WHERE W.name=#{name}
 			</script>
 			""")
 	public Word getWordbyName(String name);
-	
-	
+
+
 	@Select("""
 			<script>
 			SELECT *
 			FROM word
-			ORDER BY RAND() LIMIT 10
+			ORDER BY RAND() LIMIT 30
 			</script>
 			""")
 	public List<Word> RandomWordList();
-	
+
 
 	@Select("""
 			<script>
 			SELECT word.mean
 			FROM word
+			WHERE word.mean is not null
 			ORDER BY RAND() LIMIT 50
 			</script>
 			""")
 	public List<String> RandomMeanList();
-	
+
+
+	@Select("""
+			<script>
+			SELECT word.name
+			FROM word
+			ORDER BY RAND() LIMIT 50
+			</script>
+			""")
+	public List<String> RandomNameList();
+
 }

@@ -2,11 +2,20 @@
 body {
     font-family: 'Nanum+Myeongjo' !important;
 } */
+/*@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");*/
+body{
+    background: #d9d4cf;
+}
+:root {
+    --main-color: #abd0ce;
+    --main-point-color: #7c7877;
+    --content-color:#f0e5de;
+}
 
 .btn-custom{
-    background-color:green;
+    background-color:var(--main-point-color);
     border-radius: 2px;
-    border: 1px solid green;
+    border: 1px solid var(--main-point-color);
     color: white;
     /* padding: 15px 32px;
     text-align: center;
@@ -25,11 +34,7 @@ body {
     border-radius: 2px;
     border: 1px solid whitesmoke;
     color: black;
-    /* padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px; */
+
 }
 
 .btn-custom-login:hover {
@@ -44,13 +49,13 @@ body {
 }
 
 .a-custom{
-    color:green;
+    color:var(--main-point-color);
     text-decoration: none;
 }
 
 
 .a-custom:hover {
-    color: green;
+    color: var(--main-point-color);
     /* text-decoration: underline; */
     /* text-decoration: none; */
 }
@@ -75,4 +80,114 @@ body {
 
 .border-change{
     border-radius: 2px;
+}
+
+#main-logo{
+    text-align: center;
+}
+#logo1{
+    font-size: 2vw;
+    line-height: 0.5;
+    font-weight: 500;
+}
+#logo2{
+    font-size: 2.5vw;
+    line-height: 0.5;
+    font-weight: 500;
+    /* background: linear-gradient(to top, transparent 10%,#FFE400 80%, transparent 10%); */
+    box-shadow: inset 0 -15px 0 #fff400;
+}
+#top-nav{
+    background: var(--main-color);
+}
+
+#top-sticky{
+    background: var(--main-color);
+    height: 20vh;
+    position: sticky;
+    padding-bottom: 160px;
+    top: 0;
+    min-height: fit-content;
+}
+
+#menu-container{
+    background:var(--content-color);
+    border-radius: 15px 15px 0px 0px;
+
+    position:absolute;
+    bottom:0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 15px;
+    animation: container-ani 1s;
+}
+
+.menu-pill-button{
+    text-decoration: none;
+    margin-left: 16px;
+    background-color:var(--main-color);
+}
+.menu-pill-button:hover{
+    text-decoration: none;
+    color: white;
+    margin-left: 16px;
+    background-color:var(--main-color);
+}
+.menu-pill-button-selected{
+    text-decoration: none;
+    margin-left: 16px;
+    background-color: var(--main-point-color);
+}
+.menu-pill-button-selected:hover{
+    text-decoration: none;
+    color: white;
+    margin-left: 16px;
+    background-color: var(--main-point-color);
+}
+.content-container{
+    background: var(--content-color);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 10px 10px 20px;
+    animation: container-ani 1s;
+}
+.collapse{
+    background-color: var(--bs-gray-400);
+}
+
+.top-inner{
+    padding-top: 1vh;
+    position: relative;
+    height: fit-content;
+}
+
+@keyframes container-ani {
+    0% { transform: translate(0, 10px); }
+    100% { transform: translate(0, 0); }
+}
+
+.hidden-menu{
+    background: var(--main-color);
+}
+.card-body{
+    background-color: var(--content-color);
+    height: 100%;
+    border-color: var(--content-color);
+}
+
+.a-readshort{
+    text-decoration: none;
+    color: black;
+}
+.a-readshort:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.a-readshort-clicked{
+    text-decoration: none;
+    color: black;
+    background-color: yellow;
 }

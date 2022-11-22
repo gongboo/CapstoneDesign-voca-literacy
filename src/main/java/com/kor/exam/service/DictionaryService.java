@@ -46,7 +46,11 @@ public class DictionaryService {
 	public Word getWordbyId(int id) {
 		return dictionaryRepository.getWordbyId(id);
 	}
-	
+
+	public List<Word> getWordsbyName(String name) {
+		return dictionaryRepository.getWordsbyName(name);
+	}
+
 	public List<Word> RandomWordList(){
 		return dictionaryRepository.RandomWordList();
 	}
@@ -54,6 +58,11 @@ public class DictionaryService {
 	public List<String> RandomMeanList(){
 		return dictionaryRepository.RandomMeanList();
 	}
+
+	public List<String> RandomNameList(){
+		return dictionaryRepository.RandomNameList();
+	}
+
 
 
 }

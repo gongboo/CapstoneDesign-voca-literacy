@@ -9,8 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Question {
-	private Word word;
-//	private String name;
+	private String question;
 	private List<String>examples;
 	private int answer;
 
