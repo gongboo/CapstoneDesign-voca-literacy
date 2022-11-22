@@ -2,6 +2,7 @@
 body {
     font-family: 'Nanum+Myeongjo' !important;
 } */
+/*@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");*/
 body{
     background: #d9d4cf;
 }
@@ -174,4 +175,19 @@ body{
     background-color: var(--content-color);
     height: 100%;
     border-color: var(--content-color);
+}
+
+.a-readshort{
+    text-decoration: none;
+    color: black;
+}
+.a-readshort:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.a-readshort-clicked{
+    text-decoration: none;
+    color: black;
+    background-color: yellow;
 }
