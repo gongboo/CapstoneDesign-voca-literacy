@@ -30,10 +30,12 @@
 <%--              <img src="/resource/logo_capstone_regularfont.png" style="width: 150px;" />--%>
 <%--          </a>--%>
           <a class="navbar-brand d-flex align-items-center" href="/">
-              <div id="main-logo">
-                  <span id="logo1">수능을 위한</span><br>
-                  <span id="logo2">어휘문해력</span>
-              </div>
+<%--              <div id="main-logo">--%>
+<%--                  <span id="logo1">수능을 위한</span><br>--%>
+<%--                  <span id="logo2">어휘문해력</span>--%>
+<%--              </div>--%>
+            <img src="/resource/logo_capstone_regularfont.png" style="width: 150px;" />
+
           </a>
           <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#loginExternalContent" aria-controls="loginExternalContent" aria-expanded="false" aria-label="Toggle navigation">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
