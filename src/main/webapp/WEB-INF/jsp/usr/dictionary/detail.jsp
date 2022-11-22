@@ -11,7 +11,7 @@
 <div id="top-sticky">
 	<div class="container top-inner">
 		<a class="btn btn-custom" href="/usr/dictionary/list">사전검색</a>
-		<a class="active btn btn-custom" href="/usr/dictionary/pic">사진 검색</a>
+		<a class="btn btn-custom" href="/usr/dictionary/pic">사진 검색</a>
 
 		<form class="flex" style="border: 2px solid white">
 			<div class="input-group">
@@ -39,6 +39,7 @@
 		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/dictionary/list">검색하기</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/learn/shortTextRead">글 읽기</a>
 	</div>
 </div>
 

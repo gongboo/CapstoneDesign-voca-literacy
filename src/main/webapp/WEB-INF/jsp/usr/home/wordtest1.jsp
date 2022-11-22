@@ -5,8 +5,8 @@
 <%@ include file="../common/head.jspf"%>
 <div id="top-sticky">
     <div class="container top-inner">
-        <p style="text-align: center">남은 시간</p>
-        <p style="text-align: center">3:00</p>
+        <p style="text-align: center; font-size: large;">남은 시간</p>
+        <strong><p style="text-align: center; font-size: large;">3:00</p></strong>
 <%--        <p>푼 문제</p>--%>
 <%--        <div class="progress">--%>
 <%--            <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="background-color:var(--main-point-color);"></div>--%>
@@ -18,6 +18,7 @@
         <a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
         <a class="badge rounded-pill menu-pill-button-selected" href="/usr/learn/wordtest1">테스트 보기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/learn/shortTextRead">글 읽기</a>
     </div>
 </div>
 

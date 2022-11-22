@@ -31,8 +31,8 @@
 <%--          </a>--%>
           <a class="navbar-brand d-flex align-items-center" href="/">
               <div id="main-logo">
-                  <p id="logo1">수능을 위한</p>
-                  <p id="logo2">어휘문해력</p>
+                  <span id="logo1">수능을 위한</span><br>
+                  <span id="logo2">어휘문해력</span>
               </div>
           </a>
           <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#loginExternalContent" aria-controls="loginExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,7 +75,7 @@
     <div class="collapse hidden-menu" id="menuExternalContent">
         <div class="p-4">
             <div class="container d-block d-md-block">
-                <h1 style="background-color: white">여기에 추가적인 메뉴가 들어감</h1>
+                <h1>메뉴 전체 보기</h1>
 <%--              <ul class="navbar-nav mx-auto">--%>
 <%--                <c:if test="${rq.logined}">--%>
 <%--                <li class="nav-item">--%>
