@@ -19,6 +19,7 @@
 		<a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
 		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/learn/wordtest1">테스트 보기</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/learn/shortTextRead">글 읽기</a>
 	</div>
 </div>
 <%--<nav class="navbar navbar-expand-md">--%>
@@ -44,7 +45,7 @@
 		<div class="container" id="question-${status.count}">
 			<div class="container">
 				<h4>문제${status.count}</h4>
-				<p>${question.word.name}</p>
+				<p>${question.question}</p>
 			</div>
 
 				<div class="form-check">

@@ -29,52 +29,98 @@ public class UsrTestController {
 		this.rq = rq;
 	}
 
-
 	@RequestMapping("/usr/learn/wordtest2")
-	public String showTest(Model model,
-			@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
-			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
+	public String showTest(Model model) {
 
-		
+
 		member=rq.getLoginedMember();
 		List<Word> words = dictionaryService.RandomWordList();
-		List<String> examples = dictionaryService.RandomMeanList();
-		List<Question>questions = new ArrayList<>();
-		Random random = new Random();
+		List<String> examples1 = dictionaryService.RandomMeanList();
+		List<String> examples2 = dictionaryService.RandomNameList();
+		List<Question>questions = MakeQuestion(words,examples1,examples2);
 
-		for(int j=0;j<words.size();j++) {
-			for(int i=0;i<examples.size();i++){
-			if(examples.get(i)==words.get(j).getMean()||examples.get(i).isEmpty()) {
-			examples.remove(i--);
-			}
-			}
-		}
-		for(int i=0;i<words.size();i++) {
-			int ran = random.nextInt(4);
-			List<String>temp = new ArrayList<>();
-			for(int j=0;j<5;j++) {
-				int ran2 = random.nextInt(examples.size()-1);
-				if(j==ran) {
-					temp.add(words.get(i).getMean());
-				}
-				else temp.add(examples.get(ran2));
-			}
-			Question q = new Question();
-			q.setAnswer(ran);
-			q.setWord(words.get(i));
-			q.setExamples(temp);
-			questions.add(q);
-		}
-	
-		
 		model.addAttribute("words", words);
 		model.addAttribute("questions", questions);
 
 
-	
+
 		return "usr/home/wordtest4";
 	}
 
-	
+	public List<Question> MakeQuestion(List<Word> words, List<String> examples1, List<String> examples2){
+		Random random = new Random();
+		List<Question>questions = new ArrayList<>();
+
+
+		//null이나 문제랑 중복되면 삭제
+		for(int j=0;j<words.size();j++) {
+			for(int i=0;i<examples1.size();i++){
+				if(examples1.get(i)==words.get(j).getMean()||examples1.get(i).isEmpty()) {
+					examples1.remove(i);
+				}
+				if(examples2.get(i)==words.get(j).getName()||examples2.get(i).isEmpty()) {
+					examples2.remove(i);
+				}
+			}
+		}
+
+		//문제 생성
+		for(int i=0;questions.size()<10;i++) { //11로 되어 있었는데 11개 나오길래 10으로 수정함
+			int snum =random.nextInt(2);
+			if(words.get(i).getExample().isEmpty()) {
+				snum=0;
+			}
+			if(words.get(i).getMean().isEmpty()) {
+				snum=1;
+			}
+			if(words.get(i).getMean().isEmpty()&&words.get(i).getExample().isEmpty()) {
+				snum=2;
+			}
+			switch(snum) {
+				case 0: //단어의 뜻 맞추기
+					int ran = random.nextInt(4);
+					List<String>temp = new ArrayList<>();
+
+					for(int j=0;j<5;j++) {
+						int ran2 = random.nextInt(examples1.size()-1);
+						//정답위치에 답 넣기
+						if(j==ran) {
+							temp.add(words.get(i).getMean());
+						}
+						else temp.add(examples1.get(ran2));
+					}
+					Question q = new Question();
+					q.setAnswer(ran);
+					q.setQuestion(words.get(i).getName());
+					q.setExamples(temp);
+					questions.add(q);
+					break;
+
+				case 1: //예시 빈칸으로 단어 맞추기
+					int ran3 = random.nextInt(4);
+					List<String>temp2 = new ArrayList<>();
+					for(int j=0;j<5;j++) {
+						int ran2 = random.nextInt(examples1.size()-1);
+						//정답위치에 답 넣기
+						if(j==ran3) {
+							temp2.add(words.get(i).getName());
+						}
+						else temp2.add(examples2.get(ran2));
+					}
+					Question q2 = new Question();
+					q2.setAnswer(ran3);
+					String q3[]=words.get(i).getExample().split("<|>");
+					String q4 = q3[2].replace(words.get(i).getName(), "[  ]");
+					q2.setQuestion(q4);
+					q2.setExamples(temp2);
+					questions.add(q2);
+					break;
+
+				case 2: //둘 다 없으면 패스
+					break;
+			}
+		}
+		return questions;
+	}
 
 }
