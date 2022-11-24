@@ -165,9 +165,10 @@ public interface DictionaryRepository {
 
 	@Select("""
 			<script>
-			SELECT *
+			SELECT W.name, group_concat(distinct W.type separator ' | ') as type, group_concat(W.mean separator ' | ') as mean, group_concat(W.mean separator ' | ') as example
 			from word as W
 			WHERE W.name=#{name}
+		    GROUP BY trim(W.name)
 			</script>
 			""")
 	public Word getWordbyName(String name);

@@ -63,10 +63,10 @@
 
 	<div class="container content-container">
 		<h4>${word.name}</h4>
-	<p>[${word.type}] ${word.mean}</p>
+	<p>[${word.type}] ${word.mean} ${word.example}</p>
 
 		<c:if test="${rq.logined}"> 
-			<form method="post" action="../member/myPage/addWord?id=${word.id}">
+			<form method="post" action="../member/myPage/addWord?name=${word.name}">
 			<button class="btn btn-custom" type="submit">내 단어장에 추가하기</button></form>
 		</c:if>
 <br>

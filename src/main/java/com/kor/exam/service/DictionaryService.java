@@ -34,7 +34,7 @@ public class DictionaryService {
 //
 //		return word;
 //	}
-	public Word getForPrintWord(String name) {
+	public Word getWordbyName(String name) {
 		Word word = dictionaryRepository.getWordbyName(name);
 		return word;
 	}

@@ -51,7 +51,7 @@ public class UsrDictionaryController {
 	@RequestMapping("/usr/dictionary/detail")
 	public String showDetail(Model model, String name) {
 
-	    Word word = dictionaryService.getForPrintWord(name);
+	    Word word = dictionaryService.getWordbyName(name);
 
 		model.addAttribute("word", word);
 		
