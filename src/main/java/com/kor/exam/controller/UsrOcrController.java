@@ -92,7 +92,8 @@ public class UsrOcrController {
 
         //tesseract 시작
         Tesseract tesseract = new Tesseract();
-        tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
+        //tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
+        tesseract.setDatapath("\\usr\\share\\tesseract-ocr\\4.00\\tessdata");
 
 //        // 자동으로 tessdata 찾는거 이렇게 한다는데 이걸로 작동 안함
 //        File tessDataFolder = LoadLibs.extractTessResources("tessdata");
