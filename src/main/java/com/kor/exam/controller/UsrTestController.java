@@ -42,7 +42,7 @@ public class UsrTestController {
 		model.addAttribute("words", words);
 		model.addAttribute("questions", questions);
 
-
+        
 
 		return "usr/home/wordtest4";
 	}

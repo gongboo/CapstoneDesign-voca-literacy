@@ -20,20 +20,17 @@ public class DictionaryService {
 		this.dictionaryRepository = dictionaryRepository;
 	}
 
-	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page) {
+	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page,int search) {
 		int limitStart = (page - 1) * itemsCountInAPage;
 		int limitTake = itemsCountInAPage;
-//		List<Word> words = dictionaryRepository.getForPrintWords(searchKeyword, searchKeywordTypeCode, limitStart, limitTake);
 		List<Word> words = dictionaryRepository.MakeDictionary(searchKeyword, searchKeywordTypeCode, limitStart, limitTake);
+		if(search!=0) {
+		dictionaryRepository.SearchNumUpdate(searchKeyword,searchKeywordTypeCode);}
 
 		return words;
 	}
 
-//	public Word getForPrintWord(int id) {
-//		Word word = dictionaryRepository.getWordbyId(id);
-//
-//		return word;
-//	}
+
 	public Word getWordbyName(String name) {
 		Word word = dictionaryRepository.getWordbyName(name);
 		return word;

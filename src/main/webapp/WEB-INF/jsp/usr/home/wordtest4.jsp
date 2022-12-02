@@ -134,7 +134,6 @@
 		//submit_button.style.display="none";
 		score.style.display="block";
 		var count=0;
-
 		for (var i = 0; i < question_ids.length; i++) {
 			var submit_ans=document.querySelector('input[name='+question_ids[i]+']:checked').value;
 			if (submit_ans==correct_answers[i]){
