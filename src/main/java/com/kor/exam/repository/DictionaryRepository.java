@@ -203,5 +203,35 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public List<String> RandomNameList();
+	
+
+	@Update("""
+			<script>
+			UPDATE word as W
+			SET W.search_num = W.search_num+1
+			WHERE 1
+				<if test="searchKeyword != ''">
+				<choose>
+					<when test="searchKeywordTypeCode == 'name'">
+						AND W.name LIKE CONCAT('%', #{searchKeyword}, '%')
+					</when>
+					<when test="searchKeywordTypeCode == 'type'">
+						AND W.type LIKE CONCAT('%', #{searchKeyword}, '%')
+					</when>
+					<when test="searchKeywordTypeCode == 'mean'">
+							AND W.mean LIKE CONCAT('%', #{searchKeyword}, '%')
+						</when>
+					<otherwise>
+						AND (
+							W.name LIKE CONCAT('%', #{searchKeyword}, '%')
+							OR
+							W.mean LIKE CONCAT('%', #{searchKeyword}, '%')
+						)
+					</otherwise>
+				</choose>
+			</if>
+			</script>
+			""")
+	public void SearchNumUpdate(String searchKeyword,String searchKeywordTypeCode);
 
 }
