@@ -1,5 +1,6 @@
 package com.kor.exam.storage;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -7,6 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -44,6 +46,16 @@ public class FileSystemStorageService implements StorageService {
 			try (InputStream inputStream = file.getInputStream()) {
 				Files.copy(inputStream, destinationFile,
 					StandardCopyOption.REPLACE_EXISTING);
+				String fileName = file.getName();  
+			    String now = "ocr";
+			    int i = 0;
+			          i = fileName.lastIndexOf("."); // 파일 확장자 위치
+			          String realFileName = now + fileName.substring(i, fileName.length());  //현재시간과 확장자 합치기
+			   
+			    File oldFile = new File(destinationFile + fileName);
+			    File newFile = new File(destinationFile + realFileName);
+			   
+			    oldFile.renameTo(newFile); // 파일명 변경
 			}
 		}
 		catch (IOException e) {

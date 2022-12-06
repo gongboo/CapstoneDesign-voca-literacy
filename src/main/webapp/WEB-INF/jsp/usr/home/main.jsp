@@ -20,14 +20,7 @@ prefix="c"%>
         <a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
-        <a class="badge rounded-pill menu-pill-button" href="/usr/learn/shortTextRead">글 읽기</a>
-        </c:if>
-        <c:if test="${!rq.logined}">
-            <a class="badge rounded-pill menu-pill-button" href="/usr/member/login" onclick="alert('로그인하세요')">검색하기</a>
-            <a class="badge rounded-pill menu-pill-button" href="/usr/member/login" onclick="alert('로그인하세요')">테스트 보기</a>
-            <a class="badge rounded-pill menu-pill-button" href="/usr/member/login" onclick="alert('로그인하세요')">나만의 단어장</a>
-            <a class="badge rounded-pill menu-pill-button" href="/usr/member/login" onclick="alert('로그인하세요')">글 읽기</a>
-        </c:if>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
     </div>
 
 
