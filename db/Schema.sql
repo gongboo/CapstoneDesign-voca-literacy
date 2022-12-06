@@ -88,3 +88,23 @@ CREATE TABLE MyVoca(
 );
 
 SELECT * FROM MyVoca;
+
+create table freq(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `name` char(40) not null,
+	freq int (10) default 0
+);
+
+select * from freq;
+
+update word W inner join freq F on CONCAT('%', W.name, '%') = F.name
+set W.test_num = F.freq;
+
+create table Book(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title char(30) NOT NULL,
+	writer char(20),
+	body varchar(2000) NOT NULL  
+);
+
+select * from Book;
