@@ -31,15 +31,15 @@
 
   
 <div class="container content-container">
-	<h2>${book.title}</h4>
-	<h4>[${book.writer}]</p> 
-	<h4>${book.body}</h2>
+	<h4>${book.title}</h4>
+	<h4>[${book.writer}]</h4>
+	<p id="words-container">${book.body}</p>
 <br>
 <button onclick="history.back()" class="btn btn-custom">뒤로가기</button>
 		
 	</div>
 <script>
-    var text="개나리 노란 꽃 그늘 아래 가지런히 놓여 있는 꼬까신 하나";
+    var text="${book.body}";
     words=text.split(" ");
     var texthtml="";
     for ( var i in words ) {
