@@ -31,12 +31,18 @@
 
   
 <div class="container content-container">
+    <div class="container">
+        <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
+        </div>
+        <div style="display: inline;">수능 고빈도어</div>
+
+<br>
 	<h4>${book.title}</h4>
-	<h4>[${book.writer}]</h4>
+	<p>[${book.writer}]</p>
 	<p id="words-container">${book.body}</p>
 <br>
 <button onclick="history.back()" class="btn btn-custom">뒤로가기</button>
-		
+</div>
 	</div>
 <script>
     var text="${book.body}";

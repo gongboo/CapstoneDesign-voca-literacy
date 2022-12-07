@@ -48,19 +48,11 @@
     </div>
 </div>
 
-    <div class="container content-container">
-        <div class="container">
-            <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
-            </div>
-            <div style="display: inline;">수능 고빈도어</div>
-        </div>
-        <div class="container" id="words-container">
 
-        </div>
-    </div>
     
     <div class="container content-container">
-<div class="col">
+
+	<div class="col">
 	<c:forEach var="book" items="${books}">
 		<div class="container" style="padding: 12px">
 			<div class="col">
@@ -70,7 +62,7 @@
 			</div>
 		</div>
   	</c:forEach>
-</div>
+	</div>
 <div class="container">
 	<div class="page-menu mt-4">
 		<div class="btn-group justify-center">
