@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-
+<div class="container content-container">
 
 <div class="col">
 	<c:forEach var="word" items="${words}">
@@ -95,7 +95,7 @@
 </div>
 
 
-
+</div>
 
 
 <%@ include file="../../common/foot.jspf"%>
