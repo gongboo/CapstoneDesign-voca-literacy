@@ -7,9 +7,7 @@
 <div id="top-sticky">
     <div class="container top-inner">
         <div style="align-items: center">
-              <button class="btn btn-custom" type="submit">
-             <a class="badge rounded-pill menu-pill-button-selected" href="/usr/book/detail?ran=1"> 랜덤 지문으로 보기 </a>
-            </button>
+            <a class="btn btn-custom" href="/usr/book/detail?ran=1"> 랜덤 지문으로 보기 </a>
         </div>
         <form class="flex" style="border: 2px solid white">
             <div class="input-group">

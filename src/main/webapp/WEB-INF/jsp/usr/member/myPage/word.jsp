@@ -40,24 +40,21 @@
 		<a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
 	</div>
 </div>
-
-
-
-<div class="col">
-	<c:forEach var="word" items="${words}">
-		<div class="container" style="padding: 12px">
-			<div class="col">
-			<h4>${word.name}</h4>
-      <p>[${word.type}] ${word.mean}</p>
-			<a href="${rq.getWordDetailUriFromWordList(word)}" style="padding: 0px 10px 0px 0px" class="a-custom">자세히보기</a>
-			<a href="deleteWord?name=${word.name}" style="padding: 0px 10px 0px 0px" class="a-custom">삭제하기</a>
-			</div>
-		</div>
-  	</c:forEach>
-</div>
-
-
 <div class="container content-container">
+
+	<div class="col">
+		<c:forEach var="word" items="${words}">
+			<div class="container" style="padding: 12px">
+				<div class="col">
+					<h4>${word.name}</h4>
+					<p>[${word.type}] ${word.mean}</p>
+					<a href="${rq.getWordDetailUriFromWordList(word)}" style="padding: 0px 10px 0px 0px" class="a-custom">자세히보기</a>
+					<a href="deleteWord?name=${word.name}" style="padding: 0px 10px 0px 0px" class="a-custom">삭제하기</a>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+
 	<div class="page-menu mt-4">
 		<div class="btn-group justify-center">
 			<c:set var="pageMenuArmLen" value="9" />
