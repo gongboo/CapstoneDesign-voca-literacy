@@ -44,7 +44,7 @@ public class FileSystemStorageService implements StorageService {
 						"Cannot store file outside current directory.");
 			}
 			try (InputStream inputStream = file.getInputStream()) {
-				File new_dest= new File("본인 설정 경로");//"C:\\Users\\auspi\\test\\new_text_file.jpg"
+				File new_dest= new File("/home/ubuntu/my_project/file_place/ocr_file.jpg");//"C:\\Users\\auspi\\test\\new_text_file.jpg"
 				Files.copy(inputStream, new_dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
 //				String fileName = file.getName();
 //			    String now = "ocr";
