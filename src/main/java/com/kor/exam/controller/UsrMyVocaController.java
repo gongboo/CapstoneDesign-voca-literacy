@@ -112,7 +112,7 @@ public class UsrMyVocaController {
 		member = rq.getLoginedMember();
 		myvocaService.addWord(member.getId(), name , type);
 
-		return rq.jsReplace(Ut.f("오답 단어장에 %s을/를 추가하였습니다.",name), "../../member/myPage/Wrongword");
+		return rq.jsReplace(Ut.f("오답 단어장에 %s을/를 추가하였습니다.",name), "../../home/showResult");
 	}
 	
 
