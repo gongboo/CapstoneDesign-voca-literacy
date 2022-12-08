@@ -33,13 +33,13 @@ public class UsrMyVocaController {
 	public String showList(Model model,
 			@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
-
+        int type = 0;
 		member=rq.getLoginedMember();
-		int WordsCount = myvocaService.getWordsCount(searchKeywordTypeCode, searchKeyword, member.getId());
+		int WordsCount = myvocaService.getWordsCount(searchKeywordTypeCode, searchKeyword, member.getId(),type);
 
 		int itemsCountInAPage = 10;
 		int pagesCount = (int) Math.ceil((double) WordsCount / itemsCountInAPage);
-		List<Word> words = myvocaService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, member.getId());
+		List<Word> words = myvocaService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, member.getId(),type);
 
 
 		model.addAttribute("page", page);
@@ -51,17 +51,39 @@ public class UsrMyVocaController {
 		return "usr/member/myPage/word";
 	}
 	
+	@RequestMapping("/usr/member/myPage/Wrongword")
+	public String showWrong(Model model,
+			@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
+			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
+	    int type = 1;
+		member=rq.getLoginedMember();
+		int WordsCount = myvocaService.getWordsCount(searchKeywordTypeCode, searchKeyword, member.getId(),type);
+
+		int itemsCountInAPage = 10;
+		int pagesCount = (int) Math.ceil((double) WordsCount / itemsCountInAPage);
+		List<Word> words = myvocaService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, member.getId(),type);
+
+
+		model.addAttribute("page", page);
+		model.addAttribute("pagesCount", pagesCount);
+		model.addAttribute("WordsCount", WordsCount);
+		model.addAttribute("words", words);
+
+	
+		return "usr/member/myPage/Wrongword";
+	}
+	
 	 @RequestMapping("/usr/member/myPage/mypage2")
 	    public String showMyList(Model model,
 				@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
-				@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
+				@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "0") int type) {
 
 			member=rq.getLoginedMember();
-			int WordsCount = myvocaService.getWordsCount(searchKeywordTypeCode, searchKeyword, member.getId());
+			int WordsCount = myvocaService.getWordsCount(searchKeywordTypeCode, searchKeyword, member.getId(),type);
 
 			int itemsCountInAPage = 10;
 			int pagesCount = (int) Math.ceil((double) WordsCount / itemsCountInAPage);
-			List<Word> words = myvocaService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, member.getId());
+			List<Word> words = myvocaService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, member.getId(),type);
 
 
 			model.addAttribute("page", page);
@@ -76,20 +98,22 @@ public class UsrMyVocaController {
 	
 	@RequestMapping("/usr/member/myPage/addWord")
 	@ResponseBody
-	public String doAddWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
+	public String doAddWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri, @RequestParam(defaultValue = "0") int type) {
 		member = rq.getLoginedMember();
-		myvocaService.addWord(member.getId(), name);
+		myvocaService.addWord(member.getId(), name , type);
 
-		return rq.jsReplace(Ut.f("나만의 단어장에 %s을/를 추가하였습니다.",name), afterFindLoginIdUri);
+		return rq.jsReplace(Ut.f("오답 단어장에 %s을/를 추가하였습니다.",name), afterFindLoginIdUri);
 	}
+	
+
 	
 	@RequestMapping("/usr/member/myPage/deleteWord")
 	@ResponseBody
-	public String doDeleteWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri) {
+	public String doDeleteWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri, @RequestParam(defaultValue = "0") int type) {
 		member = rq.getLoginedMember();
-		myvocaService.deleteWord(member.getId(), name);
+		myvocaService.deleteWord(member.getId(), name , type);
 
-		return rq.jsReplace(Ut.f("나만의 단어장에서 %s을/를 삭제하였습니다.",name), afterFindLoginIdUri);
+		return rq.jsReplace(Ut.f("오답 단어장에서 %s을/를 삭제하였습니다.",name), afterFindLoginIdUri);
 	}
 	
 }

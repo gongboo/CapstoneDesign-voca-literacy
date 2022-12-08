@@ -4,24 +4,26 @@
 <c:set var="pageTitle" value="Dictionary" />
 <%@ include file="../common/head.jspf"%>
 
+
 <div id="top-sticky">
     <div class="container top-inner">
         <a class="btn btn-custom" aria-current="page" href="/usr/dictionary/list">사전검색</a>
         <a class="btn btn-custom" href="/usr/dictionary/pic">사진 검색</a>
-        <form class="flex" style="border: 2px solid white">
+
+        <form method="POST" enctype="multipart/form-data" action="/upload" class="flex" style="border: 2px solid white; background-color: white;">
             <div class="input-group">
-                        <input maxlength="20" class="form-control" type="file" accept="image/*">
-                        <a class="btn btn-custom" href="/imagesearch">검색</a>
+                <input class="btn form-control" maxlength="20" type="file" name="file" />
+                <input class="btn form-control" type="submit" value="Upload" />
+                <a class="btn btn-custom" href="/imagesearch">검색</a>
             </div>
         </form>
-        <p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>
     </div>
 
     <div class="container" id="menu-container">
         <a class="badge rounded-pill menu-pill-button-selected" href="/usr/dictionary/list">검색하기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
-        <a class="badge rounded-pill menu-pill-button" href="/usr/learn/shortTextRead">글 읽기</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
     </div>
 </div>
 

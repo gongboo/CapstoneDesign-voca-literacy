@@ -19,7 +19,7 @@
 		<a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
 		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/learn/wordtest1">테스트 보기</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
-		<a class="badge rounded-pill menu-pill-button" href="/usr/learn/shortTextRead">글 읽기</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
 	</div>
 </div>
 <%--<nav class="navbar navbar-expand-md">--%>
@@ -134,7 +134,6 @@
 		//submit_button.style.display="none";
 		score.style.display="block";
 		var count=0;
-
 		for (var i = 0; i < question_ids.length; i++) {
 			var submit_ans=document.querySelector('input[name='+question_ids[i]+']:checked').value;
 			if (submit_ans==correct_answers[i]){
@@ -145,9 +144,8 @@
 		var test_result=document.getElementById("result-num");
 		test_result.innerHTML=count+"점 입니다!";
 
-
 		$.ajax({
-			url : "",
+			url : "/usr/learn/showResult.do",
 			type : "post",
 			data : {
 				test_result_correct_or_not : correct_or_not

@@ -28,16 +28,19 @@ public class UsrDictionaryController {
 
 	@RequestMapping("/usr/dictionary/list")
 	public String showList(Model model,
-			@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
+			@RequestParam(defaultValue = "name") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
-
-
-
+        
+	    int memberId = rq.getLoginedMemberId();
+        int search=0;
+        if(!searchKeyword.equals("")){//검색할때
+        	search=1;
+        }
 		int WordsCount = dictionaryService.getWordsCount(searchKeywordTypeCode, searchKeyword);
-
+        
 		int itemsCountInAPage = 10;
 		int pagesCount = (int) Math.ceil((double) WordsCount / itemsCountInAPage);
-		List<Word> words = dictionaryService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page);
+		List<Word> words = dictionaryService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, search,memberId);
 
 
 		model.addAttribute("page", page);
@@ -51,7 +54,7 @@ public class UsrDictionaryController {
 	@RequestMapping("/usr/dictionary/detail")
 	public String showDetail(Model model, String name) {
 
-	    Word word = dictionaryService.getForPrintWord(name);
+	    Word word = dictionaryService.getWordbyName(name);
 
 		model.addAttribute("word", word);
 		
