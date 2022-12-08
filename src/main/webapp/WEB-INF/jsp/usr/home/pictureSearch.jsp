@@ -9,32 +9,14 @@
     <div class="container top-inner">
         <a class="btn btn-custom" aria-current="page" href="/usr/dictionary/list">사전검색</a>
         <a class="btn btn-custom" href="/usr/dictionary/pic">사진 검색</a>
- <!--       <form class="flex" style="border: 2px solid white">
+
+        <form method="POST" enctype="multipart/form-data" action="/upload" class="flex" style="border: 2px solid white; background-color: white;">
             <div class="input-group">
-                        <input maxlength="20" class="form-control" type="file" accept="image/*">
-                        <a class="btn btn-custom" href="/imagesearch">검색</a>
+                <input class="btn form-control" maxlength="20" type="file" name="file" />
+                <input class="btn form-control" type="submit" value="Upload" />
+                <a class="btn btn-custom" href="/imagesearch">검색</a>
             </div>
-        </form> -->
-        
- <form method="POST" enctype="multipart/form-data" action="/upload">
-        <table>
-            <tr>
-                <td>File to upload:</td>
-                <td><input type="file" name="file" /></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Upload" /></td>
-            </tr>
-        </table>
-    </form>
-    <a class="btn btn-custom" href="/imagesearch">검색</a>
-
-
-
-
-
-        <p class="text-secondary">단어 개수 : <span>${WordsCount}</span>개</p>
+        </form>
     </div>
 
     <div class="container" id="menu-container">

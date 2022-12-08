@@ -44,18 +44,18 @@ public class FileSystemStorageService implements StorageService {
 						"Cannot store file outside current directory.");
 			}
 			try (InputStream inputStream = file.getInputStream()) {
-				Files.copy(inputStream, destinationFile,
-					StandardCopyOption.REPLACE_EXISTING);
-				String fileName = file.getName();  
-			    String now = "ocr";
-			    int i = 0;
-			          i = fileName.lastIndexOf("."); // 파일 확장자 위치
-			          String realFileName = now + fileName.substring(i, fileName.length());  //현재시간과 확장자 합치기
-			   
-			    File oldFile = new File(destinationFile + fileName);
-			    File newFile = new File(destinationFile + realFileName);
-			   
-			    oldFile.renameTo(newFile); // 파일명 변경
+				File new_dest= new File("본인 설정 경로");//"C:\\Users\\auspi\\test\\new_text_file.jpg"
+				Files.copy(inputStream, new_dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//				String fileName = file.getName();
+//			    String now = "ocr";
+//			    int i = 0;
+//				i = fileName.lastIndexOf("."); // 파일 확장자 위치
+//				String realFileName = now + fileName.substring(i, fileName.length());  //현재시간과 확장자 합치기
+//
+//			    File oldFile = new File(destinationFile + fileName);
+//			    File newFile = new File(destinationFile + realFileName);
+//
+//			    oldFile.renameTo(newFile); // 파일명 변경
 			}
 		}
 		catch (IOException e) {
