@@ -11,6 +11,7 @@ import com.kor.exam.utill.Ut;
 import com.kor.exam.vo.ResultData;
 import com.kor.exam.vo.Word;
 
+
 @Service
 public class DictionaryService {
 	private DictionaryRepository dictionaryRepository;
@@ -20,12 +21,16 @@ public class DictionaryService {
 		this.dictionaryRepository = dictionaryRepository;
 	}
 
-	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page,int search) {
+	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page,int search,int memberId) {
 		int limitStart = (page - 1) * itemsCountInAPage;
 		int limitTake = itemsCountInAPage;
 		List<Word> words = dictionaryRepository.MakeDictionary(searchKeyword, searchKeywordTypeCode, limitStart, limitTake);
 		if(search!=0) {
-		dictionaryRepository.SearchNumUpdate(searchKeyword,searchKeywordTypeCode);}
+		dictionaryRepository.SearchNumUpdate(searchKeyword,searchKeywordTypeCode);
+		for(int i=0;i<words.size();i++) {
+		dictionaryRepository.SearchRecord(memberId, words.get(i).getName());
+		}
+		}
 
 		return words;
 	}
@@ -48,8 +53,8 @@ public class DictionaryService {
 		return dictionaryRepository.getWordsbyName(name);
 	}
 
-	public List<Word> RandomWordList(){
-		return dictionaryRepository.RandomWordList();
+	public List<Word> RandomWordList(int level){
+		return dictionaryRepository.RandomWordList(level);
 	}
 	
 	public List<String> RandomMeanList(){

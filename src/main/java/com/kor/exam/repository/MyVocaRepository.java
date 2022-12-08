@@ -27,7 +27,7 @@ public interface MyVocaRepository {
 				FROM MyVoca AS V
 			    LEFT JOIN word AS W
 			    ON V.WordName = W.name
-				WHERE V.memberId = #{memberId}
+				WHERE V.memberId = #{memberId} and V.type = #{type}
 				<if test="searchKeyword != ''">
 					<choose>
 						<when test="searchKeywordTypeCode == 'name'">
@@ -53,7 +53,7 @@ public interface MyVocaRepository {
 			</script>
 			""")
 	public List<Word> getForPrintWords(String searchKeyword, String searchKeywordTypeCode,
-			int limitStart, int limitTake,int memberId);
+			int limitStart, int limitTake,int memberId,int type);
 
 	public int getLastInsertId();
 
@@ -63,7 +63,7 @@ public interface MyVocaRepository {
 			FROM MyVoca AS V
 		    LEFT JOIN word AS W
 		    ON V.WordName = W.name
-			WHERE V.memberId = #{memberId}
+			WHERE V.memberId = #{memberId} and V.type = #{type}
 			<if test="searchKeyword != ''">
 				<choose>
 					<when test="searchKeywordTypeCode == 'name'">
@@ -83,7 +83,7 @@ public interface MyVocaRepository {
 			</if>
 			</script>
 			""")
-	public int getWordsCount(String searchKeywordTypeCode, String searchKeyword,int memberId);
+	public int getWordsCount(String searchKeywordTypeCode, String searchKeyword,int memberId,int type);
 
 	@Select("""
 			<script>
@@ -100,17 +100,18 @@ public interface MyVocaRepository {
 			SET regDate = NOW(),
 			updateDate = NOW(),
 			memberId = #{memberId},
-			WordName = #{name}
+			WordName = #{name},
+			type = #{type}
 			</script>
 			""")
-	public void addWord(int memberId, String name);
+	public void addWord(int memberId, String name,int type);
 	
 	@Delete("""
 			<script>
 			Delete FROM MyVoca
-			where memberId = #{memberId} and WordName = #{name}
+			where memberId = #{memberId} and WordName = #{name} and type = #{type}
 			</script>
 			""")
-	public void deleteWord(int memberId, String name);
+	public void deleteWord(int memberId, String name,int type);
 	
 }

@@ -9,7 +9,6 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.kor.exam.vo.Word;
-import com.kor.exam.vo.Member;
 
 @Mapper
 public interface DictionaryRepository {
@@ -165,7 +164,7 @@ public interface DictionaryRepository {
 
 	@Select("""
 			<script>
-			SELECT W.name, group_concat(distinct W.type separator ' | ') as type, group_concat(W.mean separator ' | ') as mean, group_concat(W.mean separator ' | ') as example
+			SELECT W.name, group_concat(distinct W.type separator ' | ') as type, group_concat(W.mean separator ' | ') as mean, group_concat(W.example separator ' | ') as example
 			from word as W
 			WHERE W.name=#{name}
 		    GROUP BY trim(W.name)
@@ -177,11 +176,11 @@ public interface DictionaryRepository {
 	@Select("""
 			<script>
 			SELECT *
-			FROM word
+			FROM word where word.level in (#{level},#{level}-1,#{level}+1)
 			ORDER BY RAND() LIMIT 30
 			</script>
 			""")
-	public List<Word> RandomWordList();
+	public List<Word> RandomWordList(int level);
 
 
 	@Select("""
@@ -233,5 +232,15 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public void SearchNumUpdate(String searchKeyword,String searchKeywordTypeCode);
+	
+	@Insert("""
+			<script>
+			INSERT INTO search
+			SET memberId=#{memberId},
+			wordName = #{wordName},
+			searchDate = NOW()			
+			</script>
+			""")
+	public void SearchRecord(int memberId, String wordName);
 
 }

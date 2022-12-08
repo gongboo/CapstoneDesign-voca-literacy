@@ -16,11 +16,11 @@ public class MyVocaService {
 		this.myvocaRepository = myvocaRepository;
 	}
 
-	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page,int memberId) {
+	public List<Word> getForPrintWords(String searchKeyword,String searchKeywordTypeCode, int itemsCountInAPage, int page,int memberId, int type) {
 		int limitStart = (page - 1) * itemsCountInAPage;
 		int limitTake = itemsCountInAPage;
 
-		List<Word> words = myvocaRepository.getForPrintWords(searchKeyword, searchKeywordTypeCode, limitStart, limitTake, memberId);
+		List<Word> words = myvocaRepository.getForPrintWords(searchKeyword, searchKeywordTypeCode, limitStart, limitTake, memberId,type);
 
 
 		return words;
@@ -32,20 +32,20 @@ public class MyVocaService {
 		return word;
 	}
 
-	public int getWordsCount(String searchKeywordTypeCode, String searchKeyword,int memberId) {
-		return myvocaRepository.getWordsCount(searchKeywordTypeCode, searchKeyword, memberId);
+	public int getWordsCount(String searchKeywordTypeCode, String searchKeyword,int memberId,int type) {
+		return myvocaRepository.getWordsCount(searchKeywordTypeCode, searchKeyword, memberId, type);
 	}
 
 	public Word getWordbyId(int id) {
 		return myvocaRepository.getWordbyId(id);
 	}
 	
-	public void addWord(int memberId, String name) {
-		myvocaRepository.addWord(memberId,name);
+	public void addWord(int memberId, String name ,int type) {
+		myvocaRepository.addWord(memberId,name,type);
 	}
 	
-	public void deleteWord(int memberId,String name) {
-		myvocaRepository.deleteWord(memberId,name);
+	public void deleteWord(int memberId,String name, int type) {
+		myvocaRepository.deleteWord(memberId,name,type);
 	}
 
 

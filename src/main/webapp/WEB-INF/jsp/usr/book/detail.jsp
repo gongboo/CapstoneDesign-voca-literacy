@@ -27,9 +27,11 @@
     </div>
 </div>
 
-  
+
 <div class="container content-container">
+
     <div class="container">
+
         <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
         </div>
         <div style="display: inline;">수능 고빈도어</div>
@@ -41,6 +43,7 @@
 <br>
 <button onclick="history.back()" class="btn btn-custom">뒤로가기</button>
 </div>
+
 	</div>
 <script>
     var text="${book.body}";
@@ -49,7 +52,7 @@
     for ( var i in words ) {
         texthtml+= '<a class="a-readshort" href="javascript:void(0)" onclick="pressText(this)">' + words[i] + '</a> ';
     }
-    document.getElementById("words-container").innerHTML=texthtml;
+    document.getElementById("book-body").innerHTML=texthtml;
 
     function pressText(thisElement){
         if (thisElement.classList.contains("a-readshort")) {
