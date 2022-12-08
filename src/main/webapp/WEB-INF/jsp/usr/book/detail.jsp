@@ -7,9 +7,7 @@
 <div id="top-sticky">
     <div class="container top-inner">
         <div style="align-items: center">
-              <button class="btn btn-custom" type="submit">
-             <a class="badge rounded-pill menu-pill-button-selected" href="/usr/book/detail?ran=1"> 랜덤 지문으로 보기 </a>
-            </button>
+            <a class="btn btn-custom" href="/usr/book/detail?ran=1"> 랜덤 지문으로 보기 </a>
         </div>
         <form class="flex" style="border: 2px solid white">
             <div class="input-group">
@@ -31,7 +29,9 @@
 
 
 <div class="container content-container">
-	<div class="container">
+
+    <div class="container">
+
         <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
         </div>
         <div style="display: inline;">수능 고빈도어</div>
@@ -44,8 +44,8 @@
 <button onclick="history.back()" class="btn btn-custom">뒤로가기</button>
 </div>
 
- </div>
-<script type="text/javascript">
+	</div>
+<script>
     var text="${book.body}";
     words=text.split(" ");
     var texthtml="";
