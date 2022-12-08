@@ -20,6 +20,7 @@ prefix="c"%>
         <a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/Wrongword">오답 단어장</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
         </c:if>
     </div>
