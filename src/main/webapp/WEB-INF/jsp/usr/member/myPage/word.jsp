@@ -65,7 +65,7 @@
 			<c:set var="endPage"
 				value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
 			<c:set var="pageBaseUri"
-				value="$?searchKeyword=${param.searchKeyword}" />
+				value="word?searchKeyword=${param.searchKeyword}" />
 			<c:set var="pageBaseUri"
 				value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
 

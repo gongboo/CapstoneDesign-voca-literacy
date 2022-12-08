@@ -58,7 +58,8 @@
 </div>
 
 
-<div class="container content-container">
+
+<div class="container">
 	<div class="page-menu mt-4">
 		<div class="btn-group justify-center">
 			<c:set var="pageMenuArmLen" value="9" />
@@ -67,7 +68,7 @@
 			<c:set var="endPage"
 				value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
 			<c:set var="pageBaseUri"
-				value="$?searchKeyword=${param.searchKeyword}" />
+				value="Wrongword?searchKeyword=${param.searchKeyword}" />
 			<c:set var="pageBaseUri"
 				value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
 
@@ -92,6 +93,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 
