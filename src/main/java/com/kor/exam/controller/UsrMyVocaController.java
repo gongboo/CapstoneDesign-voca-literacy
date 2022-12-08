@@ -102,7 +102,17 @@ public class UsrMyVocaController {
 		member = rq.getLoginedMember();
 		myvocaService.addWord(member.getId(), name , type);
 
-		return rq.jsReplace(Ut.f("오답 단어장에 %s을/를 추가하였습니다.",name), afterFindLoginIdUri);
+		return rq.jsReplace(Ut.f("단어장에 %s을/를 추가하였습니다.",name), "../../dictionary/list");
+	}
+	
+
+	@RequestMapping("/usr/member/myPage/addWrongWord")
+	@ResponseBody
+	public String doAddWrongWord(String name, @RequestParam(defaultValue = "/") String afterFindLoginIdUri, @RequestParam(defaultValue = "1") int type) {
+		member = rq.getLoginedMember();
+		myvocaService.addWord(member.getId(), name , type);
+
+		return rq.jsReplace(Ut.f("오답 단어장에 %s을/를 추가하였습니다.",name), "../../home/showResult");
 	}
 	
 
@@ -113,7 +123,7 @@ public class UsrMyVocaController {
 		member = rq.getLoginedMember();
 		myvocaService.deleteWord(member.getId(), name , type);
 
-		return rq.jsReplace(Ut.f("오답 단어장에서 %s을/를 삭제하였습니다.",name), afterFindLoginIdUri);
+		return rq.jsReplace(Ut.f("단어장에서 %s을/를 삭제하였습니다.",name),"../../member/myPage/word");
 	}
 	
 }

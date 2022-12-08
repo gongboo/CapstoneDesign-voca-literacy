@@ -23,6 +23,7 @@
         <a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/Wrongword">오답 단어장</a>
         <a class="badge rounded-pill menu-pill-button-selected" href="/usr/book/list">글 읽기</a>
     </div>
 </div>
@@ -32,9 +33,7 @@
 
     <div class="container">
 
-        <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
-        </div>
-        <div style="display: inline;">수능 고빈도어</div>
+     
 
 <br>
 	<h4>${book.title}</h4>

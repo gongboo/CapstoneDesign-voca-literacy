@@ -7,19 +7,15 @@ prefix="c"%>
 <%@ include file="../common/head.jspf"%>
 
 
-<div id="top-sticky">
-    <div class="container top-inner">
-        <div class="container">
-            <p>현재까지 1000개의 단어를 학습했습니다.</p>
-            <canvas id="myChart" style="width: 100%; height: 40%;"></canvas>
 
-        </div>
-    </div>
+
+<div id="top-sticky">
     <div class="container" id="menu-container">
         <c:if test="${rq.logined}">
         <a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+        <a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/Wrongword">오답 단어장</a>
         <a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
         </c:if>
     </div>

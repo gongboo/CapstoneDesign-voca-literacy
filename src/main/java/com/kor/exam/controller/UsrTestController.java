@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kor.exam.service.DictionaryService;
 import com.kor.exam.service.MyVocaService;
+import com.kor.exam.utill.Ut;
 import com.kor.exam.vo.Member;
 import com.kor.exam.vo.Question;
 import com.kor.exam.vo.Rq;
@@ -24,6 +25,9 @@ public class UsrTestController {
 	private MyVocaService myvocaService;
 	private Rq rq;
 	private Member member;
+	private List<Word> words;
+	private List<Boolean> results;
+	private List<Question> questions;
 	
 	public UsrTestController(DictionaryService dictionaryService,MyVocaService myvocaService, Rq rq) {
 		this.dictionaryService = dictionaryService;
@@ -36,10 +40,10 @@ public class UsrTestController {
 
 
 		member=rq.getLoginedMember();
-		List<Word> words = dictionaryService.RandomWordList(member.getLevel());
+		this.words = dictionaryService.RandomWordList(member.getLevel());
 		List<String> examples1 = dictionaryService.RandomMeanList();
 		List<String> examples2 = dictionaryService.RandomNameList();
-		List<Question>questions = MakeQuestion(words,examples1,examples2);
+		this.questions = MakeQuestion(words,examples1,examples2);
 
 	
 		model.addAttribute("words", words);
@@ -51,24 +55,31 @@ public class UsrTestController {
 	}
 
 
-//	@RequestMapping(value = "/usr/learn/showResult.do", method = { RequestMethod.POST })
-//	@ResponseBody
-//	public String doShowResult(Model model, @RequestParam("test_result_correct_or_not") List<Boolean> test_result, @RequestParam("words") List<Word> words) {
-//		member = rq.getLoginedMember();
-//		List<Word> wordlist = new ArrayList<Word>();
-//		
-//		for(int i=0;i<10;i++) {
-//			if(test_result.get(i)==false) {
-//			wordlist.add(words.get(i));
-//			myvocaService.addWord(member.getId(), words.get(i).getName() , 1);}
-//		}
-//		
-//		model.addAttribute("words", wordlist);
-//		
-//
-//		return "usr/home/showResult";
-//	}
-//	
+	@RequestMapping(value = "/usr/learn/showResult.do", method = { RequestMethod.POST ,RequestMethod.GET})
+	public void doShowResult(Model model, @RequestParam("test_result_correct_or_not[]") List<Boolean> test_result) {
+		member = rq.getLoginedMember();
+		results=test_result;
+	}
+	
+	@RequestMapping("/usr/home/showResult")
+	public String showResult(Model model) {
+		ArrayList<Word> wordlist = new ArrayList<>();
+		
+		for(int i=0;i<10;i++) {
+			if(results.get(i)==false) {
+				wordlist.add(words.get(i));
+			}
+		}
+		for(int i=0;i<10;i++) {}
+		
+		model.addAttribute("wordlist", wordlist);
+		
+		return"usr/home/showResult";
+	}
+	
+
+	
+
 	
 	public List<Question> MakeQuestion(List<Word> words, List<String> examples1, List<String> examples2){
 		Random random = new Random();

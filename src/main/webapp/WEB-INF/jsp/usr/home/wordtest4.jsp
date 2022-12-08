@@ -19,6 +19,7 @@
 		<a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
 		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/learn/wordtest1">테스트 보기</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/word">나만의 단어장</a>
+		<a class="badge rounded-pill menu-pill-button" href="/usr/member/myPage/Wrongword">오답 단어장</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
 	</div>
 </div>
@@ -75,6 +76,7 @@
 <div class="container">
 	<div class="col"  id="next-button"><button class="btn btn-custom" onclick="show_next_question()">다음 문제</button></div>
 	<div class="col" id="answer-button" style="display: none"><button class="btn btn-custom" onclick="submit_answer()">제출하기</button></div>
+	<div class="col" id="result-button" style="display: none"><a href="/usr/home/showResult" class="btn btn-custom">틀린 단어보기</a></div>
 </div>
 </div>
 <script>
@@ -84,6 +86,10 @@
 	<c:forEach var="question" items="${questions}" varStatus="status">
 	correct_answers.push(${question.answer+1});
 	</c:forEach>
+//	var question_word=[];
+//	<c:forEach var="word" items="${words}">
+//	question_word.push(${word.name});
+//	</c:forEach>
 	for (var i = 1; i < question_ids.length; i++) {
 		document.getElementById(question_ids[i]).style.display = "none";
 	}
@@ -92,6 +98,7 @@
 	for (var i = 1; i < question_ids.length; i++) {
 		document.getElementById(question_ids[i]).style.display = "none";
 	}
+	
 
 	function show_next_question(){
 		var question_elements = [];
@@ -100,6 +107,7 @@
 		}
 		var next_button=document.getElementById("next-button");
 		var submit_button=document.getElementById("answer-button");
+		var result_button=document.getElementById("result-button");
 		console.log(correct_answers)
 		for (var i = 0; i < cur_question.length; i++) {
 			if (cur_question[i] == 1) {//현재 보여주고 있는 문제
@@ -107,6 +115,7 @@
 					//버튼을 제출로 바꿈
 					next_button.style.display = "none";
 					submit_button.style.display = "block";
+					result_button.style.display="block";
 
 				}
 				else {//다음 문제를 보여줌
@@ -148,10 +157,15 @@
 			url : "/usr/learn/showResult.do",
 			type : "post",
 			data : {
-				test_result_correct_or_not : correct_or_not
+				test_result_correct_or_not : correct_or_not//,
+				//question_word : question_word
 			},
-		});
+			success : function(){
+				alert("성공");
 
+			}
+		});
+		
 	}
 
 	var time = 180;
