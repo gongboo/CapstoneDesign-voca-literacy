@@ -60,7 +60,7 @@ public class UsrOcrController {
 	@RequestMapping("/imagesearch")
 	public String ocrTestFunction(Model model) {
 
-		Mat original_image = imread("본인 설정 경로");//"C:\\Users\\auspi\\test\\new_text_file.jpg"
+		Mat original_image = imread("C:\\Users\\danu8\\Documents\\workspace-spring-tool-suite-4-4.11.1.RELEASE\\Voca Project\\src\\main\\resources\\static\\resource\\ocr_image\\ocr_img.jpg");//"C:\\Users\\auspi\\test\\new_text_file.jpg"
 		Mat hsv_image = new Mat();// hsv 이미지 수정
 		cvtColor(original_image, hsv_image, COLOR_BGR2HSV);
 		// cvtColor(hsv_image, hsv_image, COLOR_BGR2HSV);// imgproc 모듈 이걸로 확인함 필요없는 코드

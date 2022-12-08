@@ -75,6 +75,7 @@
 <div class="container">
 	<div class="col"  id="next-button"><button class="btn btn-custom" onclick="show_next_question()">다음 문제</button></div>
 	<div class="col" id="answer-button" style="display: none"><button class="btn btn-custom" onclick="submit_answer()">제출하기</button></div>
+	<div class="col" id="result-button" style="display: none"><button class="btn btn-custom"><a href="/usr/home/showResult">결과보기</a></button></div>
 </div>
 </div>
 <script>
@@ -105,6 +106,7 @@
 		}
 		var next_button=document.getElementById("next-button");
 		var submit_button=document.getElementById("answer-button");
+		var result_button=document.getElementById("result-button");
 		console.log(correct_answers)
 		for (var i = 0; i < cur_question.length; i++) {
 			if (cur_question[i] == 1) {//현재 보여주고 있는 문제
@@ -112,6 +114,7 @@
 					//버튼을 제출로 바꿈
 					next_button.style.display = "none";
 					submit_button.style.display = "block";
+					result_button.style.display="block";
 
 				}
 				else {//다음 문제를 보여줌
