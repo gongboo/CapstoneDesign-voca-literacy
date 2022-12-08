@@ -30,16 +30,17 @@ public class UsrDictionaryController {
 	public String showList(Model model,
 			@RequestParam(defaultValue = "name") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "1") int page) {
-
+        
+	    int memberId = rq.getLoginedMemberId();
         int search=0;
         if(!searchKeyword.equals("")){//검색할때
         	search=1;
         }
 		int WordsCount = dictionaryService.getWordsCount(searchKeywordTypeCode, searchKeyword);
-
+        
 		int itemsCountInAPage = 10;
 		int pagesCount = (int) Math.ceil((double) WordsCount / itemsCountInAPage);
-		List<Word> words = dictionaryService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, search);
+		List<Word> words = dictionaryService.getForPrintWords(searchKeyword,searchKeywordTypeCode, itemsCountInAPage, page, search,memberId);
 
 
 		model.addAttribute("page", page);

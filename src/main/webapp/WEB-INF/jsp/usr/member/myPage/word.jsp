@@ -37,6 +37,7 @@
 		<a class="badge rounded-pill menu-pill-button" href="/usr/dictionary/list">검색하기</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/learn/wordtest1">테스트 보기</a>
 		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/member/myPage/word">나만의 단어장</a>
+		<a class="badge rounded-pill menu-pill-button-selected" href="/usr/member/myPage/Wrongword">오답 단어장</a>
 		<a class="badge rounded-pill menu-pill-button" href="/usr/book/list">글 읽기</a>
 	</div>
 </div>
@@ -49,7 +50,7 @@
 			<div class="col">
 			<h4>${word.name}</h4>
       <p>[${word.type}] ${word.mean}</p>
-			<a href="${rq.getWordDetailUriFromWordList(word)}" style="padding: 0px 10px 0px 0px" class="a-custom">자세히보기</a>
+			<a href="/usr/dictionary/detail?name=${word.name}" style="padding: 0px 10px 0px 0px" class="a-custom">자세히보기</a>
 			<a href="deleteWord?name=${word.name}" style="padding: 0px 10px 0px 0px" class="a-custom">삭제하기</a>
 			</div>
 		</div>

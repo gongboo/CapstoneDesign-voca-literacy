@@ -48,16 +48,6 @@
     </div>
 </div>
 
-    <div class="container content-container">
-        <div class="container">
-            <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
-            </div>
-            <div style="display: inline;">수능 고빈도어</div>
-        </div>
-        <div class="container" id="words-container">
-
-        </div>
-    </div>
     
     <div class="container content-container">
 <div class="col">

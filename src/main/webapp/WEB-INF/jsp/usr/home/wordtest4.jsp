@@ -144,9 +144,8 @@
 		var test_result=document.getElementById("result-num");
 		test_result.innerHTML=count+"점 입니다!";
 
-
 		$.ajax({
-			url : "",
+			url : "/usr/learn/showResult.do",
 			type : "post",
 			data : {
 				test_result_correct_or_not : correct_or_not

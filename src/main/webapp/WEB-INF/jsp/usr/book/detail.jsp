@@ -29,23 +29,30 @@
     </div>
 </div>
 
-  
+
 <div class="container content-container">
-	<h2>${book.title}</h4>
-	<h4>[${book.writer}]</p> 
-	<h4>${book.body}</h2>
+	<div class="container">
+        <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
+        </div>
+        <div style="display: inline;">수능 고빈도어</div>
+
+<br>
+	<h4>${book.title}</h4>
+	<p>[${book.writer}]</p>
+	<p id="words-container">${book.body}</p>
 <br>
 <button onclick="history.back()" class="btn btn-custom">뒤로가기</button>
-		
-	</div>
-<script>
-    var text="개나리 노란 꽃 그늘 아래 가지런히 놓여 있는 꼬까신 하나";
+</div>
+
+ </div>
+<script type="text/javascript">
+    var text="${book.body}";
     words=text.split(" ");
     var texthtml="";
     for ( var i in words ) {
         texthtml+= '<a class="a-readshort" href="javascript:void(0)" onclick="pressText(this)">' + words[i] + '</a> ';
     }
-    document.getElementById("words-container").innerHTML=texthtml;
+    document.getElementById("book-body").innerHTML=texthtml;
 
     function pressText(thisElement){
         if (thisElement.classList.contains("a-readshort")) {

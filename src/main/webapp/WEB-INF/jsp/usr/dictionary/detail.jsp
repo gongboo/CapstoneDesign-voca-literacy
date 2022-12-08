@@ -63,7 +63,7 @@
 
 	<div class="container content-container">
 		<h4>${word.name}</h4>
-	<p>[${word.type}] ${word.mean} ${word.example}</p>
+	<p>[${word.type}] ${word.mean} <br />  <br /> 예시) ${word.example}</p>
 
 		<c:if test="${rq.logined}"> 
 			<form method="post" action="../member/myPage/addWord?name=${word.name}">

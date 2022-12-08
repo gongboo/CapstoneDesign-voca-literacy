@@ -7,7 +7,9 @@ import java.util.Random;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kor.exam.service.DictionaryService;
 import com.kor.exam.service.MyVocaService;
@@ -34,11 +36,12 @@ public class UsrTestController {
 
 
 		member=rq.getLoginedMember();
-		List<Word> words = dictionaryService.RandomWordList();
+		List<Word> words = dictionaryService.RandomWordList(member.getLevel());
 		List<String> examples1 = dictionaryService.RandomMeanList();
 		List<String> examples2 = dictionaryService.RandomNameList();
 		List<Question>questions = MakeQuestion(words,examples1,examples2);
 
+	
 		model.addAttribute("words", words);
 		model.addAttribute("questions", questions);
 
@@ -47,10 +50,30 @@ public class UsrTestController {
 		return "usr/home/wordtest4";
 	}
 
+
+//	@RequestMapping(value = "/usr/learn/showResult.do", method = { RequestMethod.POST })
+//	@ResponseBody
+//	public String doShowResult(Model model, @RequestParam("test_result_correct_or_not") List<Boolean> test_result, @RequestParam("words") List<Word> words) {
+//		member = rq.getLoginedMember();
+//		List<Word> wordlist = new ArrayList<Word>();
+//		
+//		for(int i=0;i<10;i++) {
+//			if(test_result.get(i)==false) {
+//			wordlist.add(words.get(i));
+//			myvocaService.addWord(member.getId(), words.get(i).getName() , 1);}
+//		}
+//		
+//		model.addAttribute("words", wordlist);
+//		
+//
+//		return "usr/home/showResult";
+//	}
+//	
+	
 	public List<Question> MakeQuestion(List<Word> words, List<String> examples1, List<String> examples2){
 		Random random = new Random();
 		List<Question>questions = new ArrayList<>();
-
+        System.out.println(words.size());
 
 		//null이나 문제랑 중복되면 삭제
 		for(int j=0;j<words.size();j++) {
@@ -87,7 +110,10 @@ public class UsrTestController {
 						if(j==ran) {
 							temp.add(words.get(i).getMean());
 						}
-						else temp.add(examples1.get(ran2));
+						else {
+							temp.add(examples1.get(ran2));
+//						    examples1.remove(ran2);
+						}
 					}
 					Question q = new Question();
 					q.setAnswer(ran);
@@ -105,12 +131,15 @@ public class UsrTestController {
 						if(j==ran3) {
 							temp2.add(words.get(i).getName());
 						}
-						else temp2.add(examples2.get(ran2));
+						else {
+							temp2.add(examples2.get(ran2));
+//						    examples2.remove(ran2);
+						}
 					}
 					Question q2 = new Question();
 					q2.setAnswer(ran3);
 					String q3[]=words.get(i).getExample().split("<|>");
-					String q4 = q3[2].replace(words.get(i).getName(), "[  ]");
+					String q4 = q3[0].replace(words.get(i).getName(), "[  ]");
 					q2.setQuestion(q4);
 					q2.setExamples(temp2);
 					questions.add(q2);
