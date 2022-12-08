@@ -242,5 +242,16 @@ public interface DictionaryRepository {
 			</script>
 			""")
 	public void SearchRecord(int memberId, String wordName);
+	
+	
+	@Update("""
+			<script>
+			UPDATE word as W
+			SET W.recent_search = (SELECT count(S.*)
+			                       FROM search as S INNER JOIN word as W ON W.name = S.wordName
+			                       WHERE S.searchDate BETWEEN '2022-12-01' AND '2022-12-16')			
+			</script>
+			""")
+	public void RecentSearch();
 
 }

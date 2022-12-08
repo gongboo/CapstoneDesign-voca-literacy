@@ -76,7 +76,7 @@
 <div class="container">
 	<div class="col"  id="next-button"><button class="btn btn-custom" onclick="show_next_question()">다음 문제</button></div>
 	<div class="col" id="answer-button" style="display: none"><button class="btn btn-custom" onclick="submit_answer()">제출하기</button></div>
-	<div class="col" id="result-button" style="display: none"><button class="btn btn-custom"><a href="/usr/home/showResult">결과보기</a></button></div>
+	<div class="col" id="result-button" style="display: none"><a href="/usr/home/showResult" class="btn btn-custom">틀린 단어보기</a></div>
 </div>
 </div>
 <script>

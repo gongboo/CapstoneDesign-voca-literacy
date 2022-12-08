@@ -33,9 +33,7 @@
 
     <div class="container">
 
-        <div style="display: inline-block; background-color: palevioletred; width:20px; height: 10px;">
-        </div>
-        <div style="display: inline;">수능 고빈도어</div>
+     
 
 <br>
 	<h4>${book.title}</h4>
