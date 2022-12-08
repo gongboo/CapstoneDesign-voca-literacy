@@ -4,6 +4,6 @@
 <c:set var="pageTitle" value="어휘 테스트" />
 <%@ include file="../common/head.jspf"%>
 
-<div>ㅇㅇ</div>
+<div>결과창</div>
 
 <%@ include file="../common/foot.jspf"%>
