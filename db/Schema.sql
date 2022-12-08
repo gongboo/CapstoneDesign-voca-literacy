@@ -49,7 +49,7 @@ email = "user2@gmail.com";
 
 alter table `member` add column Level int(10) not null default '0';
 
-update `member` set level = 3 where id = 2;
+update `member` set level =3 where id =2;
 
 SELECT * FROM `member`;
 
@@ -65,7 +65,6 @@ create table word(
  pronun varchar(50),
  `usage` varchar(100),
  `level` int(10),
- topic varchar(50),
  related_word varchar(100),
  mean varchar(500),
  example varchar (1000),
@@ -98,26 +97,30 @@ type = "관형사",
 `mean` = "유교에서 행하거나 따르는 방법이나 방식의 것.",
 `example` = "향약은 유교적 이념을 널리 보급하기 위한 목적으로 실시되었다." ;
            
-SELECT * FROM word where name LIKE CONCAT('%', "가", '%');
+SELECT * FROM word where name = '일공당';
 select * from word ;
 drop table if exists MyVoca;
+
 
 CREATE TABLE MyVoca(
     id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     regDate DATETIME NOT NULL,
     updateDate DATETIME NOT NULL,
     memberId INT(10) NOT NULL,
-    WordName char(40) NOT NULL
+    WordName char(40) NOT NULL,
+    `type` int(10) not null default '0'
 );
 
 
 SELECT * FROM MyVoca;
+
 
 create table freq(
     id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` char(40) not null,
 	freq int (10) default 0
 );
+
 
 select * from freq;
 
@@ -143,6 +146,4 @@ create table search(
 );
 
 select * from search;
-
-alter table MyVoca add column type SMALLINT(2) not null default '0';
 

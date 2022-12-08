@@ -25,7 +25,7 @@ public interface BookRepository {
 	@Select("""
 			<script>
 				SELECT B.*
-				FROM book AS B
+				FROM Book AS B
 				WHERE 1
 				<if test="searchKeyword != ''">
 					<choose>
@@ -58,7 +58,7 @@ public interface BookRepository {
 	@Select("""
 			<script>
 			SELECT COUNT(*) AS cnt
-			FROM book AS B
+			FROM Book AS B
 			WHERE 1
 			<if test="searchKeyword != ''">
 				<choose>
@@ -86,7 +86,7 @@ public interface BookRepository {
 	@Select("""
 			<script>
 			SELECT *
-			FROM book
+			FROM Book
 			ORDER BY RAND() LIMIT 1
 			</script>
 			""")

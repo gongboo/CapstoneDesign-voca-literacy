@@ -51,24 +51,27 @@ public class UsrTestController {
 	}
 
 
-//	@RequestMapping(value = "/usr/learn/showResult.do", method = { RequestMethod.POST })
-//	@ResponseBody
-//	public String doShowResult(Model model, @RequestParam("test_result_correct_or_not") List<Boolean> test_result, @RequestParam("words") List<Word> words) {
-//		member = rq.getLoginedMember();
+	@RequestMapping(value = "/usr/learn/showResult.do", method = { RequestMethod.POST ,RequestMethod.GET})
+	@ResponseBody
+	public void doShowResult(Model model, @RequestParam("test_result_correct_or_not[]") List<Boolean> test_result) {
+		member = rq.getLoginedMember();
 //		List<Word> wordlist = new ArrayList<Word>();
 //		
 //		for(int i=0;i<10;i++) {
 //			if(test_result.get(i)==false) {
 //			wordlist.add(words.get(i));
-//			myvocaService.addWord(member.getId(), words.get(i).getName() , 1);}
+//			myvocaService.addWord(member.getId(), words.get(i) , 1);}
 //		}
-//		
+		
 //		model.addAttribute("words", wordlist);
-//		
-//
+		System.out.println("결과");
+		System.out.println(test_result);
+	//	System.out.println(words);
+
 //		return "usr/home/showResult";
-//	}
-//	
+	}
+	
+	
 	
 	public List<Question> MakeQuestion(List<Word> words, List<String> examples1, List<String> examples2){
 		Random random = new Random();

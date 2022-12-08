@@ -84,6 +84,10 @@
 	<c:forEach var="question" items="${questions}" varStatus="status">
 	correct_answers.push(${question.answer+1});
 	</c:forEach>
+//	var question_word=[];
+//	<c:forEach var="word" items="${words}">
+//	question_word.push(${word.name});
+//	</c:forEach>
 	for (var i = 1; i < question_ids.length; i++) {
 		document.getElementById(question_ids[i]).style.display = "none";
 	}
@@ -92,6 +96,7 @@
 	for (var i = 1; i < question_ids.length; i++) {
 		document.getElementById(question_ids[i]).style.display = "none";
 	}
+	
 
 	function show_next_question(){
 		var question_elements = [];
@@ -148,10 +153,15 @@
 			url : "/usr/learn/showResult.do",
 			type : "post",
 			data : {
-				test_result_correct_or_not : correct_or_not
+				test_result_correct_or_not : correct_or_not//,
+				//question_word : question_word
 			},
-		});
+			success : function(){
+				alert("성공");
 
+			}
+		});
+		
 	}
 
 	var time = 180;
